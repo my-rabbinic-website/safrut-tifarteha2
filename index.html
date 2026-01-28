@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפארתך | אומנות הקודש בנתיבות - המהדורה האינסופית</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700&family=Frank+Ruhl+Libre:wght@300;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'royal-dark': '#01040a',
+                        'gold-deep': '#b38728',
+                        'gold-muted': '#8e6d28',
+                        'parchment': '#fdfaf5',
+                        'dark-accent': '#0a0d14'
+                    },
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        serif: ['Frank Ruhl Libre', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root { 
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 50%, #fbf5b7 55%, #aa771c 100%); 
+        }
+        
+        body { 
+            background-color: #01040a; 
+            color: #fff; 
+            scroll-behavior: smooth;
+        }
+
+        .gold-text { 
+            background: var(--gold-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .gold-bg { background: var(--gold-gradient); }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(179, 135, 40, 0.2);
+            transition: all 0.5s ease;
+        }
+        .glass-panel:hover {
+            border-color: rgba(179, 135, 40, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Luxury Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #01040a; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 10px; }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .letter-glow {
+            text-shadow: 0 0 15px rgba(179, 135, 40, 0.5);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 6s ease-in-out infinite; }
+
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Upper Gold Bar -->
+    <div class="fixed top-0 w-full z-[1100] h-1 gold-bg"></div>
+
+    <!-- Main Navigation -->
+    <nav class="fixed w-full z-[1000] bg-royal-dark/90 backdrop-blur-md border-b border-white/5 py-4">
+        <div class="max-w-[1800px] mx-auto px-8 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <div class="text-2xl font-display tracking-widest leading-none">
+                    <span class="block">תפארתך</span>
+                    <span class="text-[8px] tracking-[0.6em] gold-text uppercase">Art of Holiness</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-10 font-sans text-[11px] font-bold tracking-[0.2em] uppercase opacity-80">
+                <a href="#hero" class="hover:gold-text transition">התחלה</a>
+                <a href="#about" class="hover:gold-text transition">הסיפור</a>
+                <a href="#letters" class="hover:gold-text transition">סוד האותיות</a>
+                <a href="#process" class="hover:gold-text transition">התהליך</a>
+                <a href="#gallery" class="hover:gold-text transition">קולקציה</a>
+                <a href="#faq" class="hover:gold-text transition">שאלות</a>
+                <a href="#contact" class="px-8 py-3 gold-bg text-royal-dark font-black hover:opacity-90 transition">הזמן עכשיו</a>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs font-bold font-display lg:hidden">
+                <a href="tel:0534192798" class="gold-text">Call 053-4192798</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1515442261904-6c301c1b4819?q=80&w=2070" class="w-full h-full object-cover hero-mask" alt="Netivot Holy Atmosphere">
+        </div>
+        
+        <div class="relative z-20 text-center px-4" data-aos="zoom-out" data-aos-duration="2000">
+            <h4 class="gold-text font-display tracking-[1em] text-xs mb-8 uppercase">Netivot Sacred Artistry</h4>
+            <h1 class="font-serif text-6xl md:text-[140px] font-black leading-none mb-6">נצח. <br><span class="gold-text">קדושה.</span></h1>
+            <p class="text-xl md:text-2xl font-light text-white/60 max-w-2xl mx-auto leading-relaxed mb-12">
+                כתיבת סת"ם בדרגת הידור עילאית, בלב עיר הקודש נתיבות, תחת השראתם של גדולי עולם.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#gallery" class="px-12 py-5 border border-gold-deep text-gold-deep font-bold hover:bg-gold-deep hover:text-royal-dark transition-all duration-700">צפייה בקטלוג 2026</a>
+                <a href="https://wa.me/972534192798" class="px-12 py-5 gold-bg text-royal-dark font-bold shadow-[0_0_30px_rgba(179,135,40,0.4)] hover:scale-105 transition">ייעוץ אישי</a>
+            </div>
+        </div>
+
+        <!-- Vertical Indicators -->
+        <div class="absolute right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-10">
+            <div class="vertical-text text-[10px] tracking-[0.5em] text-white/30 uppercase">Scroll to explore</div>
+            <div class="w-[1px] h-32 bg-gradient-to-b from-transparent via-gold-deep to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Section 2: Numbers & Authority -->
+    <section class="py-32 bg-dark-accent border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-10 grid grid-cols-2 lg:grid-cols-4 gap-16 text-center">
+            <div data-aos="fade-up">
+                <p class="text-5xl font-serif gold-text mb-4">25+</p>
+                <p class="text-xs tracking-widest text-white/40 uppercase font-bold">שנות מומחיות</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p class="text-5xl font-serif gold-text mb-4">1200</p>
+                <p class="text-xs tracking-widest text-white/40 uppercase font-bold">ספרי תורה שנכתבו</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <p class="text-5xl font-serif gold-text mb-4">100%</p>
+                <p class="text-xs tracking-widest text-white/40 uppercase font-bold">בדיקת מחשב ורב</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <p class="text-5xl font-serif gold-text mb-4">VIP</p>
+                <p class="text-xs tracking-widest text-white/40 uppercase font-bold">שירות בפריסה עולמית</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Secret of Letters (NEW) -->
+    <section id="letters" class="py-40 bg-royal-dark relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <div class="text-[500px] font-serif gold-text absolute -top-40 -left-40">א</div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-10 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-serif text-6xl font-black mb-10 leading-tight">סוד האות <br><span class="gold-text">והנשמה.</span></h2>
+                    <p class="text-white/60 text-lg leading-loose mb-10">
+                        ב"תפארתך", אנו מאמינים שכל אות היא עולם ומלואו. האות אינה רק צורה גרפית, אלא "כלי" המכיל אור רוחני. כשאנחנו כותבים עבורכם, אנחנו לא רק מעבירים דיו לקלף – אנחנו יוצרים קשר נצחי בין הדורות.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-panel p-8">
+                            <h4 class="gold-text font-bold mb-4 italic">הדיו השחור</h4>
+                            <p class="text-sm opacity-50">מיוצר מנוסחה עתיקת יומין המבטיחה עמידות למאות שנים, תוך שמירה על הברק המלכותי.</p>
+                        </div>
+                        <div class="glass-panel p-8">
+                            <h4 class="gold-text font-bold mb-4 italic">הקלף הלבן</h4>
+                            <p class="text-sm opacity-50">נבחר מתוך אלפי יריעות, מעובד "עבודת יד" לשם קדושת ספר תורה בלבד.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1563222370-d9d300438186?q=80&w=2040" class="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Writing Scroll">
+                        <div class="bg-gold-deep p-8 text-royal-dark">
+                            <h3 class="text-3xl font-serif font-black">הידור</h3>
+                            <p class="text-xs font-bold uppercase mt-2">Perfection in every stroke</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-12">
+                        <div class="bg-white/5 border border-gold-deep/20 p-8 h-40 flex items-center justify-center">
+                            <span class="text-7xl font-serif gold-text letter-glow">ב</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=2070" class="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Hand Crafting">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Infinite Scroll Showcase -->
+    <section id="gallery" class="py-40 bg-white text-royal-dark overflow-hidden">
+        <div class="max-w-[1800px] mx-auto px-10">
+            <div class="text-center mb-32">
+                <h2 class="font-serif text-7xl font-black mb-6">קולקציית העילית.</h2>
+                <p class="text-gray-400 font-display tracking-widest text-sm uppercase">Curated Masterpieces from Netivot</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                <!-- Large Item 1 -->
+                <div class="group relative overflow-hidden xl:col-span-2 xl:row-span-2 h-[800px]" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1974" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105" alt="Master Sefer Torah">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-16 flex flex-col justify-end">
+                        <h3 class="text-white text-5xl font-serif font-bold mb-4">ספר תורה 'נזר הבריאה'</h3>
+                        <p class="text-gold-light text-lg mb-8 max-w-md">כתיבה מרהיבה על קלף שליל נדיר, הגהת מומחים משולשת.</p>
+                        <button class="w-fit px-10 py-4 bg-gold-deep text-royal-dark font-black tracking-widest uppercase text-xs">בירור זמינות</button>
+                    </div>
+                </div>
+                <!-- Small Item 1 -->
+                <div class="group relative overflow-hidden h-[390px]" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2070" class="w-full h-full object-cover transition" alt="Tefillin">
+                    <div class="absolute inset-0 bg-royal-dark/40 group-hover:bg-royal-dark/0 transition flex items-center justify-center">
+                        <h4 class="text-white text-2xl font-display border-b-2 border-gold-deep pb-2">תפילין מהודרים</h4>
+                    </div>
+                </div>
+                <!-- Small Item 2 -->
+                <div class="group relative overflow-hidden h-[390px]" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1601242364317-98398c8480ed?q=80&w=2070" class="w-full h-full object-cover transition" alt="Mezuzah">
+                    <div class="absolute inset-0 bg-royal-dark/40 group-hover:bg-royal-dark/0 transition flex items-center justify-center">
+                        <h4 class="text-white text-2xl font-display border-b-2 border-gold-deep pb-2">מזוזות פרימיום</h4>
+                    </div>
+                </div>
+                <!-- Vertical Item -->
+                <div class="group relative overflow-hidden xl:col-span-2 h-[390px]" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 gold-bg opacity-90 p-12 flex flex-col justify-center">
+                        <h3 class="text-royal-dark text-4xl font-serif font-black mb-4">הזמנה אישית (Bespoke)</h3>
+                        <p class="text-royal-dark/70 text-lg mb-6">צרו קשר עם הרב הסופר לבחירת סגנון הכתב והקלף האישי שלכם.</p>
+                        <a href="tel:0534192798" class="text-royal-dark font-bold underline text-2xl">053-4192798</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The FAQ (Authority Building) -->
+    <section id="faq" class="py-40 bg-royal-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-10">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="font-serif text-5xl font-black mb-6 gold-text">שאלות של מביני עניין</h2>
+                <p class="text-white/40 uppercase tracking-widest text-xs">Expert Knowledge for the Discerning Client</p>
+            </div>
+
+            <div class="space-y-8">
+                <details class="glass-panel group p-8 cursor-pointer" open>
+                    <summary class="flex justify-between items-center font-bold text-xl gold-text list-none">
+                        <span>מה ההבדל בין כתיבת 'בית יוסף' ל'כתב האר"י'?</span>
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="mt-6 text-white/60 leading-loose text-sm">
+                        כתב 'בית יוסף' הוא המנהג הרווח בקרב האשכנזים, בעוד כתב ה'אריז"ל' מקובל בקרב החסידים. אנחנו במכון מומחים בכל סוגי הכתבים, כולל כתב 'וועליש' (ספרדי) המהודר ביותר, תוך הקפדה על צורת האותיות המדויקת לפי ההלכה.
+                    </div>
+                </details>
+
+                <details class="glass-panel group p-8 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-xl gold-text list-none">
+                        <span>איך ניתן לוודא שהקלף אכן עובד לשמה?</span>
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="mt-6 text-white/60 leading-loose text-sm">
+                        כל מוצר שיוצא מהמכון מלווה בתעודת מקור של יצרן הקלף, המעידה על תהליך העיבוד בנתיבות שנעשה "לשם קדושת ספר תורה". אנו עובדים רק עם בתי עיבוד בעלי השגחה צמודה של בד"ץ.
+                    </div>
+                </details>
+
+                <details class="glass-panel group p-8 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-xl gold-text list-none">
+                        <span>כמה זמן לוקח לכתוב ספר תורה מהודר?</span>
+                        <i class="fas fa-plus group-open:rotate-45 transition"></i>
+                    </summary>
+                    <div class="mt-6 text-white/60 leading-loose text-sm">
+                        ספר תורה ברמת 'תפארתך' דורש בין 12 ל-18 חודשי עבודה רצופים. התהליך כולל כתיבה, הגהת רב, הגהת מחשב, ותפירה ידנית של היריעות בגידי בהמה טהורה.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Contact & Location -->
+    <footer id="contact" class="bg-black pt-40 pb-20 border-t border-gold-deep/20">
+        <div class="max-w-7xl mx-auto px-10">
+            <div class="grid lg:grid-cols-2 gap-32 mb-40">
+                <div data-aos="fade-right">
+                    <h2 class="font-serif text-6xl font-black mb-12">החותם <br><span class="gold-text">האישי שלכם.</span></h2>
+                    
+                    <div class="space-y-12">
+                        <div class="flex items-start gap-8">
+                            <div class="w-16 h-16 gold-bg flex items-center justify-center text-royal-dark text-2xl">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/30 tracking-widest uppercase mb-2">שיחה ישירה</p>
+                                <a href="tel:0534192798" class="text-3xl font-bold hover:gold-text transition tracking-tighter">053-4192798</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-8">
+                            <div class="w-16 h-16 gold-bg flex items-center justify-center text-royal-dark text-2xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/30 tracking-widest uppercase mb-2">דואר אלקטרוני</p>
+                                <a href="mailto:TIFARTEHA@GMAIL.COM" class="text-2xl font-bold hover:gold-text transition">TIFARTEHA@GMAIL.COM</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-8">
+                            <div class="w-16 h-16 gold-bg flex items-center justify-center text-royal-dark text-2xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/30 tracking-widest uppercase mb-2">כתובת המכון</p>
+                                <p class="text-2xl font-bold">רחוב הסופר, נתיבות, ישראל</p>
+                                <p class="text-sm text-white/40 mt-2">במרחק הליכה מציון הבבא סאלי זיע"א</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-16" data-aos="fade-left">
+                    <h4 class="text-2xl font-serif gold-text mb-10">בקשת פרימיום</h4>
+                    <form class="space-y-10">
+                        <div class="border-b border-white/20 pb-4">
+                            <input type="text" placeholder="שמכם המלא" class="w-full bg-transparent outline-none py-2 placeholder:text-white/20">
+                        </div>
+                        <div class="border-b border-white/20 pb-4">
+                            <input type="tel" placeholder="מספר טלפון" class="w-full bg-transparent outline-none py-2 placeholder:text-white/20">
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-xs uppercase tracking-widest text-white/40">התעניינות ב:</p>
+                            <div class="flex flex-wrap gap-4">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="prod" class="accent-gold-deep"> <span class="text-sm">ספר תורה</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="prod" class="accent-gold-deep"> <span class="text-sm">תפילין</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="prod" class="accent-gold-deep"> <span class="text-sm">מזוזות</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="w-full gold-bg py-6 text-royal-dark font-black tracking-widest uppercase text-sm shadow-xl hover:scale-[1.02] transition">שלח בקשת התקשרות</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-20 gap-8">
+                <div class="flex items-center gap-6">
+                    <div class="w-12 h-12 border-2 border-gold-deep flex items-center justify-center rotate-45">
+                        <i class="fas fa-feather-pointed text-gold-deep -rotate-45"></i>
+                    </div>
+                    <div>
+                        <p class="font-display tracking-[0.4em] font-bold">תפארתך</p>
+                        <p class="text-[8px] tracking-widest text-white/40">NETIVOT SACRED MANUSCRIPTS</p>
+                    </div>
+                </div>
+                <div class="text-[10px] tracking-[0.3em] text-white/20 uppercase text-center">
+                    &copy; 2026 TIFARTEHA ARTISTRY. HANDCRAFTED IN NETIVOT.
+                </div>
+                <div class="flex gap-8 text-xl gold-text">
+                    <i class="fab fa-whatsapp cursor-pointer"></i>
+                    <i class="fab fa-instagram cursor-pointer"></i>
+                    <i class="fab fa-facebook-f cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Contact Bar (Mobile Only) -->
+    <div class="fixed bottom-0 w-full z-[1200] grid grid-cols-2 lg:hidden">
+        <a href="tel:0534192798" class="bg-gold-deep text-royal-dark py-4 text-center font-bold border-r border-royal-dark/10">חיוג מהיר</a>
+        <a href="https://wa.me/972534192798" class="bg-royal-dark text-gold-deep py-4 text-center font-bold">WhatsApp</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Parallax Effect for Letters
+        window.addEventListener('scroll', () => {
+            const letters = document.querySelectorAll('.letter-glow');
+            const scroll = window.scrollY;
+            letters.forEach((el, i) => {
+                el.style.transform = `translateY(${scroll * (0.05 + (i * 0.02))}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
