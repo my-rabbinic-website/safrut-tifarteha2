@@ -2,12 +2,11 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ספרות תפארתך | אומנות כתבי הקודש</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפארתך | החנות היוקר,ית בעולם לאומנות הסת"ם</title>
     
-    <!-- Premium Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700&family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;500;700;900&family=Noto+Serif+Hebrew:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script>
@@ -17,19 +16,15 @@
                     fontFamily: {
                         sans: ['Assistant', 'sans-serif'],
                         serif: ['Frank Ruhl Libre', 'serif'],
-                        latin: ['Cinzel', 'serif'],
+                        tradition: ['Noto Serif Hebrew', 'serif'],
                     },
                     colors: {
-                        gold: {
-                            light: '#FCF6BA',
-                            DEFAULT: '#D4AF37',
-                            dark: '#996515',
-                            premium: '#AA771C'
-                        },
-                        navy: {
-                            light: '#1a2a4a',
-                            DEFAULT: '#0c1425',
-                            dark: '#050a14'
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#9A7B4F',
+                            cream: '#FDFCF9',
+                            obsidian: '#121212',
+                            platinum: '#EBE9E1'
                         }
                     }
                 }
@@ -38,800 +33,526 @@
     </script>
 
     <style>
-        :root {
-            --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 45%, #B38728 70%, #AA771C 100%);
-            --royal-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            --gold-glow: 0 0 30px rgba(212, 175, 55, 0.3);
-        }
+        :root { --brand-gold: #C5A059; }
+        body { background-color: #FDFCF9; color: #121212; scroll-behavior: smooth; overflow-x: hidden; }
 
-        body {
-            background-color: #FDFBF7;
-            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
-            scroll-behavior: smooth;
-        }
-
-        .gold-text {
-            background: var(--gold-gradient);
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #B8860B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .gold-border {
-            border: 1px solid;
-            border-image-source: var(--gold-gradient);
-            border-image-slice: 1;
+        /* FAQ Accordion */
+        .faq-item { border-bottom: 1px solid rgba(197, 160, 89, 0.2); }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.3s ease; }
+        .faq-item.active .faq-content { max-height: 200px; padding-bottom: 2rem; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        .hero-baba-sali {
-            background-image: url('https://babasali.org.il/wp-content/uploads/2024/12/%D7%AA%D7%9E%D7%95%D7%A0%D7%94-%D7%91%D7%90%D7%91%D7%90-%D7%A1%D7%90%D7%9C%D7%99-%D7%9E%D7%95%D7%A7%D7%98%D7%9F.d110a0.webp'); 
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            mix-blend-mode: luminosity;
-            transition: opacity 2s ease-in;
+        .glass-nav { background: rgba(253, 252, 249, 0.9); backdrop-filter: blur(12px); }
+
+        /* Testimonial Animation */
+        .testimonial-track { display: flex; animation: scroll 40s linear infinite; width: max-content; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+        .testimonial-track:hover { animation-play-state: paused; }
+        
+        /* Modal & Video Animations */
+        .modal-enter { opacity: 0; transform: scale(0.9) translateY(20px); }
+        .modal-active { opacity: 1; transform: scale(1) translateY(0); }
+
+        /* Video Play Button Pulse */
+        .play-btn { animation: pulse-gold 2s infinite; }
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.6); }
+            70% { box-shadow: 0 0 0 20px rgba(197, 160, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
         }
 
-        .luxury-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* Scarcity Tags */
+        .scarcity-tag { animation: flash-red 3s infinite; }
+        @keyframes flash-red {
+            0%, 100% { opacity: 1; color: #ef4444; }
+            50% { opacity: 0.7; color: #b91c1c; }
         }
-
-        .luxury-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--royal-shadow);
-            border-color: rgba(212, 175, 55, 0.8);
-        }
-
-        .img-frame {
-            position: relative;
-            padding: 8px;
-            background: #fff;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .img-frame::before {
-            content: '';
-            position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
-            border: 1px solid rgba(212, 175, 55, 0.6);
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .marquee-wrapper {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            direction: ltr;
-            padding: 2rem 0;
-            background: linear-gradient(90deg, #FDFBF7 0%, rgba(253, 251, 247, 0) 10%, rgba(253, 251, 247, 0) 90%, #FDFBF7 100%);
-        }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: marquee 35s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .vip-input {
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 0;
-            padding: 1rem 0;
-            color: #fff;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .vip-input:focus {
-            outline: none;
-            border-bottom-color: #D4AF37;
-            box-shadow: 0 10px 10px -10px rgba(212, 175, 55, 0.3);
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        .premium-btn {
-            background: var(--gold-gradient);
-            background-size: 200% auto;
-            animation: shimmer 4s infinite linear;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .play-btn-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(12, 20, 37, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(2px);
-        }
-
-        .video-card:hover .play-btn-overlay { opacity: 1; }
-
-        .sticky-contact {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .float-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-        }
-
-        .float-btn:hover { transform: scale(1.1) rotate(5deg); }
-        .whatsapp-bg { background: #25D366; }
-        .phone-bg { background: #D4AF37; }
     </style>
 </head>
-<body class="font-sans text-navy overflow-x-hidden">
+<body class="font-serif">
 
-    <!-- Sticky Contacts -->
-    <div class="sticky-contact">
-        <a href="https://wa.me/972528219928" target="_blank" class="float-btn whatsapp-bg" title="שלחו וואטסאפ">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.058-4.51 10.06-10.059 0-2.69-.14-5.219-2.14-7.219-2.001-2.001-4.469-2.842-7.922-2.842-5.549 0-10.059 4.511-10.061 10.06 0 2.151.569 4.258 1.644 6.138l-.938 3.424 3.538-.928z"/></svg>
-        </a>
-        <a href="tel:0528219928" class="float-btn phone-bg" title="התקשרו עכשיו">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-        </a>
+    <!-- Trust Banner -->
+    <div class="bg-brand-obsidian text-brand-gold text-center py-2 px-4 text-[10px] md:text-xs font-bold tracking-widest uppercase flex justify-center items-center gap-6 relative z-[101]">
+        <span class="hidden md:inline">🌐 משלוח מבוטח חינם לכל העולם</span>
+        <span>🛡️ קנייה מאובטחת 100%</span>
+        <span class="hidden md:inline">✨ אחריות לכל החיים</span>
     </div>
 
-    <!-- Premium Navigation -->
-    <nav class="w-full bg-navy-dark text-white/80 py-3 px-6 flex justify-between items-center border-b border-gold/20 sticky top-0 z-50 backdrop-blur-md">
-        <span class="text-[10px] sm:text-xs tracking-[0.3em] font-light">EST. 2010</span>
-        <span class="font-serif text-sm sm:text-base tracking-widest text-gold uppercase drop-shadow-md">בסייעתא דשמיא</span>
-        <div class="flex items-center gap-4">
-            <a href="tel:0528219928" class="hidden sm:block text-xs border border-gold/30 px-3 py-1 rounded hover:bg-gold hover:text-navy transition-all">052-821-9928</a>
-            <span class="text-[10px] sm:text-xs tracking-[0.2em] font-light italic">נתיבות, ת"ו</span>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative min-h-[90vh] flex items-center justify-center bg-navy-dark overflow-hidden">
-        <div class="absolute inset-0 z-0 hero-baba-sali"></div>
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/15 blur-[120px] rounded-full z-0"></div>
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <div data-aos="zoom-in" data-aos-duration="2000">
-                <p class="font-latin text-gold tracking-[0.5em] text-xs sm:text-sm mb-6 uppercase drop-shadow-lg">The Pinnacle of Sacred Calligraphy</p>
-                <h1 class="hero-title font-serif text-6xl sm:text-8xl md:text-9xl font-black text-white leading-tight mb-4 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-                    ספרות <span class="gold-text">תפארתך</span>
-                </h1>
-                <div class="flex justify-center items-center gap-6 mb-8">
-                    <div class="h-[1px] w-12 sm:w-24 bg-gradient-to-l from-gold to-transparent"></div>
-                    <span class="font-serif text-xl sm:text-3xl text-gold/90 italic drop-shadow-md">קדושה • הידור • שלמות</span>
-                    <div class="h-[1px] w-12 sm:w-24 bg-gradient-to-r from-gold to-transparent"></div>
-                </div>
-                <p class="text-white/80 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-md">
-                    כאשר קדושת האותיות פוגשת אומנות נדירה. משרד סת"ם המעניק לכם שקט נפשי מלא, בליווי אישי של סופר ירא שמיים המקפיד על קוצו של יוד.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#prices" class="premium-btn text-navy px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase transition-transform hover:scale-105 inline-block shadow-[0_0_40px_rgba(212,175,55,0.4)]">
-                        לצפייה במחירון המלא
-                    </a>
-                    <a href="https://wa.me/972528219928" class="bg-transparent border border-gold text-gold px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase hover:bg-gold/10 transition-all">
-                        ייעוץ עם סופר בווטסאפ
-                    </a>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-[100] border-b border-brand-platinum transition-all duration-500 glass-nav mt-8">
+        <nav class="max-w-[1500px] mx-auto px-4 md:px-10 h-20 md:h-28 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-3xl font-black tracking-tighter gold-gradient leading-tight">ספרות תפארתך</span>
+                    <span class="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-sans font-bold opacity-60">Masterpieces of Sacred Art</span>
                 </div>
             </div>
-        </div>
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <svg class="w-6 h-6 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
+            
+            <div class="hidden lg:flex gap-10 text-[11px] font-bold uppercase tracking-[0.25em]">
+                <a href="#about" class="hover:text-brand-gold transition-colors">אודות וסטודיו</a>
+                <a href="#catalog" class="hover:text-brand-gold transition-colors">הקטלוג המלא</a>
+                <a href="#reviews" class="hover:text-brand-gold transition-colors">קהילות בעולם</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">שאלות ותשובות</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Currency Toggle -->
+                <div class="flex items-center bg-brand-platinum/50 p-1 rounded-full border border-brand-gold/20">
+                    <button onclick="setCurrency('USD')" id="btn-usd" class="px-3 py-1 text-[10px] font-bold rounded-full transition-all bg-brand-obsidian text-brand-gold">USD $</button>
+                    <button onclick="setCurrency('ILS')" id="btn-ils" class="px-3 py-1 text-[10px] font-bold rounded-full transition-all text-brand-obsidian/40">ILS ₪</button>
+                </div>
+
+                <button onclick="toggleCart()" class="relative p-3 md:p-4 bg-brand-obsidian text-brand-gold rounded-full shadow-2xl hover:scale-105 transition-all flex items-center gap-4 px-6 md:px-8 group">
+                    <span id="cart-count" class="bg-brand-gold text-brand-obsidian text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                    <span class="hidden md:inline text-[10px] font-bold uppercase tracking-widest text-white">הסל המאובטח</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <!-- Pricing Section -->
-    <main id="prices" class="py-24 px-4 sm:px-6 relative bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="font-serif text-5xl sm:text-7xl font-bold text-navy mb-4">מחירון סת"ם תשפ"ה</h2>
-                <p class="text-gold-dark font-medium">המחירים כוללים בדיקת מחיר ובדיקת גברא</p>
-                <div class="flex justify-center mt-6">
-                    <svg width="80" height="20" viewBox="0 0 60 20" fill="none"><path d="M0 10C15 10 15 2 30 2C45 2 45 10 60 10" stroke="#D4AF37" stroke-width="2"/></svg>
+    <!-- WhatsApp Floating Widget -->
+    <a href="https://wa.me/972528219928?text=שלום, הגעתי מהאתר ואשמח לייעוץ אישי בנושא סתם מהודר" target="_blank" class="fixed bottom-8 left-8 z-[150] whatsapp-float flex items-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-full shadow-2xl group transition-all hover:pr-8">
+        <div class="flex flex-col text-left leading-tight">
+            <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Online Now</span>
+            <span class="text-sm font-black">ייעוץ VIP בוואטסאפ</span>
+        </div>
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.296 0-4.159 1.861-4.159 4.158 0 2.296 1.863 4.158 4.158 4.158 2.296 0 4.158-1.862 4.158-4.158 0-2.297-1.862-4.158-4.158-4.158zm0 10.457c-3.141 0-5.692-2.551-5.692-5.691s2.551-5.692 5.692-5.692 5.691 2.551 5.691 5.692c0 3.14-2.55 5.691-5.691 5.691zM20.75 4.625c-.244 0-.441.196-.441.441v1.517c0 .245.196.441.441.441h1.517c.245 0 .441-.196.441-.441v-1.517c0-.245-.196-.441-.441-.441h-1.517zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/></svg>
+    </a>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-brand-obsidian/80 z-[200] hidden opacity-0 transition-opacity duration-500 backdrop-blur-md"></div>
+    <div id="cart-drawer" class="fixed top-0 left-0 h-full w-full sm:w-[600px] bg-white z-[201] translate-x-[-100%] transition-transform duration-700 ease-in-out flex flex-col shadow-2xl border-r border-brand-gold/20">
+        <div class="p-8 md:p-12 border-b border-brand-platinum flex justify-between items-center bg-brand-cream relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-3xl font-black italic">הבחירה הקדושה שלך</h2>
+                <div class="flex items-center gap-2 mt-2">
+                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">משלוח מבוטח חינם כלול</p>
                 </div>
             </div>
-
-            <!-- ספרי תורה -->
-            <div class="mb-28">
-                <div class="flex items-center gap-6 mb-12" data-aos="fade-right">
-                    <h3 class="font-serif text-4xl font-bold text-navy shrink-0">ספרי תורה</h3>
-                    <div class="h-[1px] bg-gold/30 flex-1"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Standard -->
-                    <div class="luxury-card rounded-lg overflow-hidden flex flex-col" data-aos="fade-up">
-                        <div class="h-48 relative overflow-hidden">
-                            <img src="https://www.picshare.co.il/m_pictures/img56451.jpg" class="w-full h-full object-cover opacity-90" alt="ספר תורה">
-                        </div>
-                        <div class="p-8 text-center flex-1 flex flex-col justify-between">
-                            <div>
-                                <h4 class="font-serif text-2xl mb-2 text-navy">כתיבה סטנדרטית</h4>
-                                <p class="text-gray-500 text-sm mb-6">הידור כשר לכתחילה • בדיקה כפולה</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="text-3xl font-black text-navy mb-4 italic">₪140,000</div>
-                                <a href="https://wa.me/972528219928?text=אני+מעוניין+בפרטים+על+ספר+תורה+סטנדרט" class="block w-full py-3 bg-navy text-white text-xs font-bold tracking-widest hover:bg-gold hover:text-navy transition-colors">הזמנה אישית</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Premium -->
-                    <div class="luxury-card rounded-lg overflow-hidden flex flex-col border-2 border-gold/60 shadow-2xl scale-105 z-10" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-0 inset-x-0 h-1.5 premium-btn z-20"></div>
-                        <div class="absolute top-4 right-4 bg-gold text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">המבוקש ביותר</div>
-                        <div class="h-56 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="ספר תורה מהודר">
-                        </div>
-                        <div class="p-8 text-center flex-1 flex flex-col justify-between">
-                            <div>
-                                <h4 class="font-serif text-3xl mb-2 text-navy font-bold">יריעות עבודת יד</h4>
-                                <p class="text-gold-dark text-sm mb-6 font-bold">עיבוד ידני משובח • כתיבה אומנותית</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="text-4xl font-black text-navy mb-4 italic">₪160,000</div>
-                                <a href="https://wa.me/972528219928?text=אני+מעוניין+בפרטים+על+ספר+תורה+עבודת+יד" class="premium-btn block w-full py-4 text-navy text-sm font-bold tracking-widest transition-all">לבדיקת זמינות סופר</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Boutique -->
-                    <div class="luxury-card rounded-lg overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-48 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1610444304895-15a0c309f3e4?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-90" alt="ספר תורה קטן">
-                        </div>
-                        <div class="p-8 text-center flex-1 flex flex-col justify-between">
-                            <div>
-                                <h4 class="font-serif text-2xl mb-2 text-navy">מהדורת "שלי"</h4>
-                                <p class="text-gray-500 text-sm mb-6">48 ס"מ ומטה • דיוק מיקרוסקופי</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="text-3xl font-black text-navy mb-4 italic">₪185,000</div>
-                                <a href="https://wa.me/972528219928?text=אני+מעוניין+בפרטים+על+ספר+תורה+קטן" class="block w-full py-3 bg-navy text-white text-xs font-bold tracking-widest hover:bg-gold hover:text-navy transition-colors">הזמנה אישית</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <button onclick="toggleCart()" class="text-brand-obsidian hover:rotate-90 transition-transform duration-300 relative z-10 bg-white p-3 rounded-full shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"></path></svg>
+            </button>
+        </div>
+        
+        <div id="cart-items" class="flex-1 overflow-y-auto p-8 md:p-12 space-y-8 bg-white"></div>
+        
+        <div class="p-8 md:p-12 bg-brand-cream border-t border-brand-platinum">
+            <div class="flex justify-between items-center mb-8">
+                <span id="total-label" class="text-gray-500 font-bold uppercase text-[11px] tracking-[0.2em]">סכום סופי מאובטח (USD)</span>
+                <span id="cart-total" class="text-4xl md:text-5xl font-black gold-gradient">$0</span>
             </div>
-
-            <!-- תפילין ומזוזות -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- תפילין -->
-                <div data-aos="fade-left">
-                    <div class="flex items-center gap-4 mb-8 border-b border-gold/30 pb-4">
-                        <h3 class="font-serif text-3xl font-bold text-navy">תפילין מהודרות</h3>
+            
+            <div class="space-y-4">
+                <button onclick="processOrder()" class="w-full py-6 md:py-8 bg-brand-obsidian text-brand-gold font-black uppercase text-sm tracking-[0.3em] rounded-[2rem] hover:bg-brand-gold hover:text-white transition-all duration-500 shadow-2xl flex justify-center items-center gap-4 group">
+                    <span>המשך לתשלום מאובטח</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+                
+                <div class="flex flex-col items-center gap-3 pt-4 opacity-50">
+                    <div class="flex gap-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5">
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="luxury-card p-6 text-center group cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=תפילין+בתים+מכונה'">
-                            <h4 class="font-bold text-navy mb-2">בתים מכונה</h4>
-                            <div class="text-2xl font-serif font-black text-gold-dark mb-4">₪3,500</div>
-                            <span class="text-[10px] text-navy/40 group-hover:text-gold">לחצו להזמנה</span>
-                        </div>
-                        <div class="luxury-card p-6 text-center border-b-4 border-gold group cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=תפילין+בתים+מכוון'">
-                            <h4 class="font-bold text-navy mb-2">בתים ר"ר מכוון</h4>
-                            <div class="text-2xl font-serif font-black text-gold-dark mb-4">₪3,800</div>
-                            <span class="text-[10px] text-navy/40 group-hover:text-gold">לחצו להזמנה</span>
-                        </div>
-                        <div class="luxury-card p-6 text-center bg-navy text-white sm:col-span-2 border border-gold/40 relative overflow-hidden group cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=תפילין+פיצפוניות'">
-                            <div class="relative z-10">
-                                <h4 class="font-bold text-gold-light mb-1 text-xl">גודל "פיצפוני"</h4>
-                                <p class="text-[10px] text-white/50 uppercase mb-3">אומנות זעירה נדירה</p>
-                                <div class="text-4xl font-serif font-black text-gold">₪6,000</div>
-                            </div>
-                        </div>
-                        <div class="p-4 text-center sm:col-span-2 text-sm text-gray-500 bg-gray-50 rounded-md border border-dashed border-gold/30">
-                            * תוספת לטלית וריקמה אישית: <strong>₪580</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- מזוזות -->
-                <div data-aos="fade-right">
-                    <div class="flex items-center gap-4 mb-8 border-b border-gold/30 pb-4">
-                        <h3 class="font-serif text-3xl font-bold text-navy">מזוזות מהודרות</h3>
-                    </div>
-                    <div class="bg-navy p-10 rounded-xl shadow-2xl relative overflow-hidden border border-gold/20">
-                        <div class="relative z-10 space-y-6">
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4 group hover:border-gold/50 transition-colors cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=מזוזה+15+סמ'">
-                                <div>
-                                    <p class="text-xl font-light text-white group-hover:text-gold transition-colors">גודל 15 ס"מ</p>
-                                    <p class="text-[10px] text-gold/60">גודל מהודר לכניסת חדרי השנה</p>
-                                </div>
-                                <span class="font-serif text-3xl font-bold text-gold">₪350</span>
-                            </div>
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4 group hover:border-gold/50 transition-colors cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=מזוזה+20+סמ'">
-                                <div>
-                                    <p class="text-xl font-light text-white group-hover:text-gold transition-colors">גודל 20 ס"מ</p>
-                                    <p class="text-[10px] text-gold/60">גודל מהודר לכניסת הבית</p>
-                                </div>
-                                <span class="font-serif text-3xl font-bold text-gold">₪470</span>
-                            </div>
-                            <div class="flex items-center justify-between group hover:border-gold/50 transition-colors cursor-pointer" onclick="window.location.href='https://wa.me/972528219928?text=מזוזה+25+סמ'">
-                                <div>
-                                    <p class="text-xl font-light text-white group-hover:text-gold transition-colors">גודל 25 ס"מ</p>
-                                    <p class="text-[10px] text-gold/60">לווילות ופתחים גדולים</p>
-                                </div>
-                                <span class="font-serif text-3xl font-bold text-gold">₪570</span>
-                            </div>
-                        </div>
-                        <div class="mt-8 border-t border-white/10 pt-6">
-                            <a href="https://wa.me/972528219928?text=אשמח+להצעת+מחיר+למזוזות+לכל+הבית" class="block text-center py-4 border border-gold text-gold font-bold hover:bg-gold hover:text-navy transition-all">הצעה לכל הבית (VIP)</a>
-                        </div>
-                    </div>
+                    <span class="text-[9px] uppercase tracking-widest font-bold">256-bit SSL Encrypted Checkout</span>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Gallery Section -->
-    <section class="py-24 bg-[#F5F2EA] border-y border-gold/20 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy mb-3">במחיצת גדולי ישראל</h2>
-                <p class="text-gray-600">רגעים של קדושה, סיומי כתיבה והתייעצויות הלכתיות</p>
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[1000] flex items-center justify-center p-6 hidden">
+        <div class="absolute inset-0 bg-brand-obsidian/95 backdrop-blur-xl" onclick="closeVideoModal()"></div>
+        <div class="w-full max-w-5xl relative z-[1001] modal-enter transition-all duration-500 aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/30">
+            <button onclick="closeVideoModal()" class="absolute top-4 left-4 z-10 text-white hover:text-brand-gold bg-black/50 p-2 rounded-full backdrop-blur-sm"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <div class="w-full h-full flex items-center justify-center bg-brand-obsidian text-brand-gold font-tradition text-2xl italic text-center p-10">
+                [כאן יוטמע סרטון התדמית שלכם המראה את תהליך היצירה המדויק בסטודיו]
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="img-frame aspect-[4/5] overflow-hidden group cursor-pointer" data-aos="zoom-in">
-                    <img src="https://www.picshare.co.il/m_pictures/img177610.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-[100vh] flex items-center pt-20 relative overflow-hidden bg-[url('https://babasali.org.il/wp-content/uploads/2024/12/%D7%AA%D7%9E%D7%95%D7%A0%D7%94-%D7%91%D7%90%D7%9AB%D7%90-%D7%A1%D7%90%D7%9C%D7%99-%D7%9E%D7%95%D7%A7%D7%98%D7%9F.d110a0.webp')] bg-cover bg-center bg-fixed">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-cream/95 via-brand-cream/90 to-brand-cream/60"></div>
+        
+        <div class="max-w-[1500px] mx-auto px-6 w-full relative z-10">
+            <div class="max-w-4xl" data-aos="fade-left">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-16 h-[2px] bg-brand-gold"></div>
+                    <span class="text-[11px] font-bold uppercase tracking-[0.6em] text-brand-darkGold">Global Standard of Excellence</span>
                 </div>
-                <!-- ... שאר פריטי הגלריה ... -->
+                <h1 class="text-5xl md:text-[5.5rem] font-black italic leading-[1] mb-8 text-brand-obsidian drop-shadow-sm">
+                    החנות הבטוחה <br>בעולם <span class="gold-gradient">ליצירות קודש.</span>
+                </h1>
+                <p class="text-xl md:text-3xl text-gray-800 mb-12 font-tradition leading-relaxed max-w-3xl italic bg-white/40 backdrop-blur-md p-6 rounded-3xl border border-white/50">
+                    בית היוצר מנתיבות המציב את הסטנדרט העולמי לאיכות וביטחון. אחריות לכל החיים בהשראתו של סידנא בבא סאלי זיע"א.
+                </p>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <a href="#catalog" class="px-12 py-6 bg-brand-obsidian text-brand-gold font-black text-xs uppercase tracking-[0.4em] rounded-full hover:shadow-2xl transition-all">
+                        כניסה לקטלוג המאובטח
+                    </a>
+                    <div class="flex items-center gap-4 pr-6 border-r border-brand-platinum">
+                        <img src="https://babasali.org.il/wp-content/uploads/2024/12/%D7%AA%D7%9E%D7%95%D7%A0%D7%94-%D7%91%D7%90%D7%9AB%D7%90-%D7%A1%D7%90%D7%9C%D7%99-%D7%9E%D7%95%D7%A7%D7%98%D7%9F.d110a0.webp" class="w-14 h-14 rounded-full border-2 border-brand-gold shadow-lg object-cover">
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">In the Path of</span>
+                            <span class="text-lg font-black italic text-brand-obsidian">BABA SALI</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-<!-- Google Verified Reviews - Infinite Loop Edition -->
-<section id="google-reviews" class="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden relative">
-    
-    <!-- Background Decor -->
-    <div class="absolute top-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 mb-16 relative z-10">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-right">
-                <div class="inline-flex items-center gap-3 bg-white shadow-sm border border-gray-100 px-4 py-2 rounded-2xl mb-4">
-                    <svg width="24" height="24" viewBox="0 0 48 48">
-                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-                    </svg>
-                    <span class="text-sm font-bold text-gray-700">דירוג Google עסקים</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-2">מה הלקוחות שלנו אומרים?</h2>
-                <p class="text-gray-500 text-lg">מעל 120 משפחות כבר זכו להתחדש במוצרי סת"ם מהודרים</p>
-            </div>
-            
-            <div class="flex flex-col items-center bg-white p-6 rounded-3xl shadow-xl shadow-secondary/10 border border-secondary/20 scale-110">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="text-4xl font-black text-slate-900">5.0</span>
-                    <div class="flex text-amber-400">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                </div>
-                <span class="text-xs font-bold text-gray-400 tracking-widest uppercase">Excellent ב-Google</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scrolling Track -->
-    <style>
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-400px * 4)); } /* רוחב כרטיס * כמות כרטיסים ייחודיים */
-        }
-        .scrolling-track {
-            display: flex;
-            width: calc(400px * 8); /* כפול מכמות הכרטיסים ליצירת לופ */
-            animation: scroll 40s linear infinite;
-        }
-        .scrolling-track:hover {
-            animation-play-state: paused;
-        }
-        .review-card {
-            width: 380px;
-            margin: 0 10px;
-        }
-    </style>
-
-    <div class="flex">
-        <div class="scrolling-track">
-
-            <!-- Review 1 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-white font-bold text-xl shadow-lg">י</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">יוסי כהן</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הזמנו ספר תורה לעילוי נשמת סבי. הליווי של הרב היה מרגש, מקצועי וברמה הכי גבוהה שיש. הכנסת ספר התורה הייתה חוויה שלא נשכח."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני שבועיים</span>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xl">ד</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">דוד לוי</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "חיפשתי סופר סת"ם אמין שיכתוב עבורנו פרשיות תפילין. זכיתי להכיר אדם משכמו ומעלה, שירותי וזמין לכל שאלה."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני חודש</span>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xl">ש</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">שמעון אזולאי</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הזמנתי בדיקת מזוזות. השירות היה מהיר, שקוף וסופר מקצועי. קיבלתי הסבר מפורט על כל מזוזה."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני 3 חודשים</span>
-                </div>
-            </div>
-
-            <!-- Review 4 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xl">א</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">אברהם יצחק</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הקפדה על כל תג ואות. רמת כתיבה מדהימה ואדם שנעים מאוד לעבוד איתו. ממליץ בחום!"
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני חצי שנה</span>
-                </div>
-            </div>
-
-            <!-- משכפל את הכרטיסים ליצירת לופ אינסופי -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl">...</div>
-            <!-- (יש לשכפל את הקוד של הכרטיסים כאן שוב כדי שהרצועה תהיה רציפה) -->
-            
-            <div class="flex flex-col items-center bg-white p-6 rounded-3xl shadow-xl shadow-secondary/10 border border-secondary/20 scale-110">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="text-4xl font-black text-slate-900">5.0</span>
-                    <div class="flex text-amber-400">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                </div>
-                <span class="text-xs font-bold text-gray-400 tracking-widest uppercase">Excellent ב-Google</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scrolling Track -->
-    <style>
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-400px * 4)); } /* רוחב כרטיס * כמות כרטיסים ייחודיים */
-        }
-        .scrolling-track {
-            display: flex;
-            width: calc(400px * 8); /* כפול מכמות הכרטיסים ליצירת לופ */
-            animation: scroll 40s linear infinite;
-        }
-        .scrolling-track:hover {
-            animation-play-state: paused;
-        }
-        .review-card {
-            width: 380px;
-            margin: 0 10px;
-        }
-    </style>
-
-    <div class="flex">
-        <div class="scrolling-track">
-            
-            <!-- Review 1 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-white font-bold text-xl shadow-lg">י</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">יוסי כהן</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הזמנו ספר תורה לעילוי נשמת סבי. הליווי של הרב היה מרגש, מקצועי וברמה הכי גבוהה שיש. הכנסת ספר התורה הייתה חוויה שלא נשכח."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני שבועיים</span>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xl">ד</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">דוד לוי</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "חיפשתי סופר סת"ם אמין שיכתוב עבורנו פרשיות תפילין. זכיתי להכיר אדם משכמו ומעלה, שירותי וזמין לכל שאלה."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני חודש</span>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xl">ש</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">שמעון אזולאי</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הזמנתי בדיקת מזוזות. השירות היה מהיר, שקוף וסופר מקצועי. קיבלתי הסבר מפורט על כל מזוזה."
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני 3 חודשים</span>
-                </div>
-            </div>
-
-            <!-- Review 4 -->
-            <div class="review-card shrink-0 bg-white border border-gray-100 p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xl">א</div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">אברהם יצחק</h4>
-                            <div class="flex items-center gap-1 text-[11px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded-full mt-1">
-                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-                                לקוח מאומת
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6 grayscale opacity-30">
-                </div>
-                <p class="text-slate-600 leading-relaxed italic">
-                    "הקפדה על כל תג ואות. רמת כתיבה מדהימה ואדם שנעים מאוד לעבוד איתו. ממליץ בחום!"
-                </p>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex justify-between items-center">
-                    <div class="flex text-amber-400 gap-0.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <span class="text-xs text-gray-400 font-medium">לפני חצי שנה</span>
-               </div>
-            </div>
-
-    <!-- CTA Button for social proof -->
-    <div class="flex justify-center mt-20 relative z-10">
-        <a href="https://google.com" target="_blank" class="flex items-center gap-3 bg-white border-2 border-slate-900 text-slate-900 px-8 py-4 rounded-2xl font-black hover:bg-slate-900 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-xl">
-            קראו את כל הביקורות ב-Google
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-    </div>
-</section>
-
-<script>
-    // סקריפט קטן לשכפול אוטומטי של הכרטיסים לצורך הלופ (במידה ולא משכפלים ידנית ב-HTML)
-    const track = document.querySelector('.scrolling-track');
-    const cards = track.innerHTML;
-    track.innerHTML = cards + cards + cards; // משלש את התוכן כדי למנוע קפיצות
-</script>
-
-    <!-- VIP Contact Form -->
-    <section id="contact" class="py-32 bg-navy-dark text-white relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+    <!-- Studio Behind the Scenes (NEW) -->
+    <section id="about" class="py-24 bg-brand-obsidian text-white overflow-hidden">
+        <div class="max-w-[1500px] mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-left">
-                    <h2 class="font-serif text-5xl md:text-6xl mb-6 italic">להתייעצות מול <span class="gold-text">הסופר</span></h2>
-                    <p class="text-gray-400 text-lg mb-10 leading-relaxed">
-                        השאירו פרטים ונשמח לחזור אליכם לשיחת ייעוץ והכוונה אישית, ללא כל התחייבות. מענה מהיר ודיסקרטי לכל שאלה בהלכה ובסת"ם.
+                <div data-aos="fade-up">
+                    <span class="text-brand-gold font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">Behind The Masterpiece</span>
+                    <h2 class="text-4xl md:text-5xl font-black italic mb-8">הצצה אל <span class="gold-gradient">תהליך היצירה</span></h2>
+                    <p class="text-gray-400 font-tradition text-xl leading-relaxed italic mb-10">
+                        קניית סת"ם היא החלטה של פעם בחיים. אנו מזמינים אתכם להציץ פנימה אל הסטודיו שלנו בנתיבות, ולראות מקרוב את הדיוק, המסורת, ובקרת האיכות הקפדנית המלווה כל יצירה לפני שהיא נשלחת לביתכם בחו"ל.
                     </p>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-6 p-4 rounded-xl border border-white/5 bg-white/5">
-                            <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gold/60">שיחה ישירה</p>
-                                <p class="text-xl font-serif">052-821-9928</p>
-                            </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-4 text-gray-300">
+                            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="font-bold">חומרי גלם ברמת הפרימיום הגבוהה ביותר</span>
+                        </li>
+                        <li class="flex items-center gap-4 text-gray-300">
+                            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="font-bold">בקרת איכות כפולה ע"י מומחים ומערכות מחשוב</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative rounded-[3rem] overflow-hidden group cursor-pointer" onclick="openVideoModal()" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=1200" class="w-full h-[500px] object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 grayscale-[0.3]">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-brand-gold/90 rounded-full flex items-center justify-center play-btn text-white group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 ml-2" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="luxury-card p-10 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10" data-aos="fade-right">
-                    <form action="#" class="space-y-8">
-                        <div>
-                            <input type="text" placeholder="שם מלא" class="vip-input">
-                        </div>
-                        <div>
-                            <input type="tel" placeholder="מספר טלפון" class="vip-input">
-                        </div>
-                        <div>
-                            <select class="vip-input bg-navy-dark text-white/60">
-                                <option value="" disabled selected>סוג המוצר המבוקש</option>
-                                <option value="תורה">ספר תורה</option>
-                                <option value="תפילין">תפילין</option>
-                                <option value="מזוזות">מזוזות</option>
-                                <option value="אחר">אחר</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="premium-btn w-full py-5 text-navy font-bold uppercase tracking-widest text-sm shadow-xl hover:scale-[1.02] transition-transform">שלח בקשת ייעוץ פרימיום</button>
-                    </form>
+    <!-- Global Catalog (With Scarcity) -->
+    <section id="catalog" class="py-32 bg-white">
+        <div class="max-w-[1500px] mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-5xl font-black italic mb-4">הקטלוג <span class="gold-gradient">הבינלאומי</span></h2>
+                <p class="text-gray-500 font-tradition text-xl">יצירות מופת באחריות מלאה. המלאי מתעדכן בזמן אמת.</p>
+            </div>
+            
+            <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Data injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Testimonials Carousel -->
+    <section id="reviews" class="py-32 bg-brand-cream overflow-hidden border-y border-brand-platinum">
+        <div class="max-w-[1500px] mx-auto px-6 mb-16 text-center">
+            <div class="flex items-center justify-center gap-4 mb-6 bg-white w-max mx-auto px-6 py-2 rounded-full border border-gray-200 shadow-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-5 h-5">
+                <span class="text-brand-gold font-bold tracking-[0.3em] text-[10px] uppercase">Verified Global Reviews</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black italic text-brand-obsidian leading-tight">קהילה עולמית <span class="gold-gradient">שסומכת עלינו</span></h2>
+        </div>
+        
+        <div class="relative flex overflow-hidden py-10">
+            <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-cream to-transparent z-10"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-cream to-transparent z-10"></div>
+            
+            <div class="testimonial-track gap-10 px-5" id="track-1"></div>
+            <div class="testimonial-track gap-10 px-5" id="track-2"></div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 bg-white overflow-hidden">
+        <div class="max-w-[900px] mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-bold uppercase tracking-[0.5em] text-[10px] mb-4 block">Information & Support</span>
+                <h2 class="text-4xl font-black italic">שאלות <span class="gold-gradient">נפוצות</span></h2>
+            </div>
+            
+            <div class="space-y-4" id="faq-container">
+                <div class="faq-item bg-brand-cream rounded-3xl p-8 cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-black italic">איך מתבצע המשלוח לחו"ל? האם זה בטוח?</h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-gold transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-gray-600 font-tradition mt-4 leading-relaxed">אנו עובדים עם חברות השילוח המובחרות בעולם (כגון DHL). כל משלוח מבוטח ב-100% מערכו, ארוז באריזה קשיחה ואטומה, ומגיע עם מספר מעקב אישי עד לפתח הדלת שלכם בכל יעד בעולם.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-brand-cream rounded-3xl p-8 cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-black italic">האם המוצרים מגיעים עם אחריות?</h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-gold transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-gray-600 font-tradition mt-4 leading-relaxed">כן! כל פריט עובר בקרת איכות קפדנית ביותר. אנו מעניקים אחריות מלאה לכל החיים על איכות הכתב, כך שתוכלו לרכוש בראש שקט לחלוטין.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-brand-cream rounded-3xl p-8 cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-black italic">איך אני יכול להיות בטוח שפרטי האשראי שלי מוגנים?</h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-gold transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-gray-600 font-tradition mt-4 leading-relaxed">אנו משתמשים במערכות הסליקה המתקדמות בעולם (כמו PayPal) עם הצפנת SSL בתקן 256-bit. פרטי האשראי שלכם אינם נשמרים בשרתים שלנו בשום שלב.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- VIP Newsletter & Retention (NEW) -->
+    <section class="py-24 bg-brand-gold text-brand-obsidian text-center px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200')] bg-cover bg-center"></div>
+        <div class="max-w-2xl mx-auto relative z-10">
+            <h2 class="text-4xl font-black italic mb-4">הצטרפו למועדון ה-VIP שלנו</h2>
+            <p class="font-tradition text-lg mb-10 opacity-90">הישארו מעודכנים בקולקציות חדשות, קבלו הטבות בלעדיות ללקוחות חו"ל, וגישה למדריכי איכות מקצועיים לפני רכישה.</p>
+            <form class="flex flex-col sm:flex-row gap-4 justify-center" onsubmit="event.preventDefault(); alert('תודה על הרשמתך למועדון ה-VIP!');">
+                <input type="email" placeholder="האימייל שלך" required class="px-6 py-4 rounded-full w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-brand-obsidian text-center sm:text-right">
+                <button type="submit" class="bg-brand-obsidian text-brand-gold font-black uppercase tracking-widest px-8 py-4 rounded-full hover:bg-white transition-colors">הרשמה</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy-dark py-12 px-6 border-t border-gold/20 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="font-serif text-3xl gold-text mb-4 italic">ספרות תפארתך</h3>
-            <p class="text-white/40 text-sm mb-8">כל הזכויות שמורות © תשפ"ה | עיה"ק נתיבות, ת"ו</p>
-            <div class="flex justify-center gap-6">
-                <a href="mailto:Tifarteha@gmail.com" class="text-gold hover:text-white transition-colors">Tifarteha@gmail.com</a>
+    <footer class="bg-brand-obsidian text-white py-24 relative overflow-hidden text-right border-t border-brand-gold/30">
+        <div class="max-w-[1500px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+                <div>
+                    <span class="text-4xl font-black italic gold-gradient block mb-4">תפארתך</span>
+                    <p class="text-gray-400 font-tradition italic text-lg leading-relaxed mb-6">מנגישים את הסטנדרט הגבוה ביותר של יצירות סת"ם מארץ הקודש לכל יהודי בעולם. בביטחון, באחריות, ובמסורת של אמת.</p>
+                    <div class="flex gap-4 items-center">
+                        <img src="https://babasali.org.il/wp-content/uploads/2024/12/%D7%AA%D7%9E%D7%95%D7%A0%D7%94-%D7%91%D7%90%D7%9AB%D7%90-%D7%A1%D7%90%D7%9C%D7%99-%D7%9E%D7%95%D7%A7%D7%98%D7%9F.d110a0.webp" class="h-10 w-10 rounded-full border border-brand-gold/50 object-cover grayscale opacity-70">
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">In the Path of <br>Baba Sali</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-brand-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-8">מוקד לקוחות בינלאומי</h4>
+                    <p class="text-xl font-black italic">052-821-9928</p>
+                    <p class="text-gray-400 mt-2 text-sm">Tifarteha@gmail.com</p>
+                    <p class="text-gray-500 mt-4 text-xs font-tradition">נתיבות, ישראל</p>
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-brand-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-8">ביטחון מלא</h4>
+                        <div class="flex gap-4 opacity-50 grayscale">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6">
+                        </div>
+                    </div>
+                    <p class="text-[9px] uppercase font-bold tracking-[0.3em] text-gray-600 mt-10">© 2024 Tifarteha. Secure Worldwide Distribution.</p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-10 right-10 z-[500] pointer-events-none opacity-0 translate-y-10 transition-all duration-500">
+        <div class="bg-brand-obsidian text-brand-gold px-8 py-5 rounded-2xl shadow-2xl flex items-center gap-4 border border-brand-gold/50">
+            <div class="w-8 h-8 bg-brand-gold text-white rounded-full flex items-center justify-center font-bold">✓</div>
+            <div class="flex flex-col">
+                <span class="font-black italic text-lg">עודכן בהצלחה</span>
+                <span class="text-[9px] uppercase tracking-widest text-white/50 font-bold">Cart Updated</span>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+        let currentCurrency = 'USD';
+        const exchangeRate = 3.75; 
+
+        // Catalog Data with Scarcity Elements
+        const catalog = [
+            { id: 1, category: "torah", name: "ספר תורה פרימיום", priceUSD: 58000, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800", desc: "איכות עילית, נכתב ע\"י אמן מומחה.", stockText: "נותרו 2 במלאי למשלוח מיידי", isLowStock: true },
+            { id: 2, category: "tefillin", name: "תפילין עור גסה מהודר", priceUSD: 2400, img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=800", desc: "ריבועים מושלמים, כולל אחריות מלאה.", stockText: "מבוקש מאוד החודש", isLowStock: false },
+            { id: 3, category: "mezuzah", name: "מזוזה 'הידור' 15 ס\"מ", priceUSD: 180, img: "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?q=80&w=800", desc: "כתב ברור ומאיר, נבדק במחשב.", stockText: "זמין במלאי", isLowStock: false },
+            { id: 4, category: "tefillin", name: "סט תפילין חתנים", priceUSD: 1950, img: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?q=80&w=800", desc: "הסט המושלם להתחלה חדשה.", stockText: "סט 1 אחרון במחיר זה", isLowStock: true }
+        ];
+
+        const googleReviews = [
+            { name: "דוד כהן", rating: 5, text: "שירות עולמי מדהים. התפילין הגיעו למיאמי באריזה מאובטחת והאיכות פשוט נדירה.", date: "לפני חודש" },
+            { name: "Jonathan B.", rating: 5, text: "The most secure process I've experienced for buying Judaica online. Highly recommend.", date: "2 weeks ago" },
+            { name: "שרה א.", rating: 5, text: "הזמנו מזוזות לכל הבית החדש בפריז. הגיע מהר ועם תעודות אחריות מסודרות.", date: "לפני חודשיים" },
+            { name: "Rabbi Levi", rating: 5, text: "Our community's Sefer Torah from Tifarteha is a true masterpiece.", date: "3 months ago" }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('tifarteha_final_cart')) || [];
+
+        function init() {
+            AOS.init({ duration: 1000, once: true });
+            renderTestimonials();
+            renderCatalog();
+            updateUI();
+        }
+
+        function setCurrency(curr) {
+            currentCurrency = curr;
+            document.querySelectorAll('#btn-usd, #btn-ils').forEach(btn => {
+                btn.classList.remove('bg-brand-obsidian', 'text-brand-gold');
+                btn.classList.add('text-brand-obsidian/40');
+            });
+            const activeBtn = document.getElementById(`btn-${curr.toLowerCase()}`);
+            activeBtn.classList.remove('text-brand-obsidian/40');
+            activeBtn.classList.add('bg-brand-obsidian', 'text-brand-gold');
+            
+            document.getElementById('total-label').innerText = curr === 'USD' ? 'סכום סופי מאובטח (USD)' : 'סכום סופי מאובטח (ILS)';
+            renderCatalog();
+            updateUI();
+        }
+
+        function formatPrice(usdPrice) {
+            return currentCurrency === 'USD' ? `$${usdPrice.toLocaleString()}` : `₪${Math.round(usdPrice * exchangeRate).toLocaleString()}`;
+        }
+
+        function renderTestimonials() {
+            const content = googleReviews.map(r => `
+                <div class="min-w-[350px] md:min-w-[420px] bg-white p-8 rounded-[2.5rem] border border-brand-platinum text-right shrink-0 shadow-sm">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex gap-1 text-brand-gold text-sm">${Array(r.rating).fill('★').join('')}</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-4 h-4">
+                    </div>
+                    <p class="text-gray-600 font-tradition italic text-lg mb-6 leading-relaxed">"${r.text}"</p>
+                    <div>
+                        <span class="block font-black text-brand-obsidian">${r.name}</span>
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest">${r.date} • Verified</span>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('track-1').innerHTML = content;
+            document.getElementById('track-2').innerHTML = content;
+        }
+
+        function renderCatalog() {
+            document.getElementById('catalog-grid').innerHTML = catalog.map((item, idx) => `
+                <div class="bg-white rounded-[2.5rem] border border-brand-platinum shadow-md overflow-hidden relative group" data-aos="fade-up" data-aos-delay="${idx * 100}">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="${item.img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-brand-obsidian text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full ${item.isLowStock ? 'bg-red-500 scarcity-tag' : 'bg-green-500'}"></span>
+                            ${item.stockText}
+                        </div>
+                    </div>
+                    <div class="p-8 text-right bg-white relative z-10">
+                        <h3 class="text-2xl font-black italic mb-2">${item.name}</h3>
+                        <span class="text-xl font-black gold-gradient block mb-4">${formatPrice(item.priceUSD)}</span>
+                        <p class="text-gray-500 font-tradition text-sm mb-8 leading-relaxed h-10">${item.desc}</p>
+                        <button onclick="addToCart(${item.id}, '${item.name}', ${item.priceUSD}, '${item.img}')" class="w-full py-4 rounded-xl border border-brand-platinum bg-brand-cream font-black text-[11px] uppercase tracking-widest hover:bg-brand-obsidian hover:text-brand-gold transition-all shadow-sm">
+                            הוספה מהירה לסל
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id, name, priceUSD, img) {
+            cart.push({ id, name, priceUSD, img, cartId: Date.now() });
+            localStorage.setItem('tifarteha_final_cart', JSON.stringify(cart));
+            updateUI();
+            showToast();
+        }
+
+        function removeFromCart(cartId) {
+            cart = cart.filter(i => i.cartId !== cartId);
+            localStorage.setItem('tifarteha_final_cart', JSON.stringify(cart));
+            updateUI();
+        }
+
+        function updateUI() {
+            const cartItems = document.getElementById('cart-items');
+            document.getElementById('cart-count').innerText = cart.length;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<div class="text-center opacity-30 py-10 font-tradition text-xl italic">הסל מאובטח וריק כעת...</div>`;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-4 pb-6 border-b border-brand-platinum">
+                        <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover">
+                        <div class="flex-1 text-right">
+                            <h4 class="font-black italic text-sm">${item.name}</h4>
+                            <p class="text-brand-gold font-bold text-sm">${formatPrice(item.priceUSD)}</p>
+                        </div>
+                        <button onclick="removeFromCart(${item.cartId})" class="text-gray-300 hover:text-red-500">✕</button>
+                    </div>
+                `).join('');
+            }
+            const totalUSD = cart.reduce((sum, item) => sum + item.priceUSD, 0);
+            document.getElementById('cart-total').innerText = formatPrice(totalUSD);
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            if (drawer.style.transform === 'translateX(0px)') {
+                drawer.style.transform = 'translateX(-100%)'; overlay.style.opacity = '0';
+                setTimeout(() => overlay.classList.add('hidden'), 500); document.body.style.overflow = '';
+            } else {
+                overlay.classList.remove('hidden');
+                setTimeout(() => { overlay.style.opacity = '1'; drawer.style.transform = 'translateX(0)'; }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function toggleFaq(el) {
+            document.querySelectorAll('.faq-item').forEach(item => { if(item !== el) item.classList.remove('active'); });
+            el.classList.toggle('active');
+        }
+
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.querySelector('.modal-enter').classList.add('modal-active'), 10);
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.querySelector('.modal-enter').classList.remove('modal-active');
+            setTimeout(() => modal.classList.add('hidden'), 500);
+        }
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.style.opacity = '1'; t.style.transform = 'translateY(0)';
+            setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(40px)'; }, 3000);
+        }
+
+        function processOrder() {
+            const totalUSD = cart.reduce((sum, item) => sum + item.priceUSD, 0);
+            if (totalUSD > 0) {
+                const amount = currentCurrency === 'USD' ? totalUSD : Math.round(totalUSD * exchangeRate);
+                window.location.href = `https://paypal.me/Tifarteha/${amount}${currentCurrency}`;
+            }
+        }
+
+        window.onload = init;
     </script>
 </body>
 </html>
-            
