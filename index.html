@@ -289,6 +289,7 @@
             <button onclick="filterByCategory('תפילין')" class="category-btn px-8 py-3 rounded-full border border-brand-platinum hover:border-brand-gold transition-all text-[10px] font-black uppercase tracking-widest">תפילין</button>
             <button onclick="filterByCategory('מזוזות')" class="category-btn px-8 py-3 rounded-full border border-brand-platinum hover:border-brand-gold transition-all text-[10px] font-black uppercase tracking-widest">מזוזות</button>
             <button onclick="filterByCategory('מגילות')" class="category-btn px-8 py-3 rounded-full border border-brand-platinum hover:border-brand-gold transition-all text-[10px] font-black uppercase tracking-widest">מגילות</button>
+            <button onclick="filterByCategory('אביזרים')" class="category-btn px-8 py-3 rounded-full border border-brand-platinum hover:border-brand-gold transition-all text-[10px] font-black uppercase tracking-widest">אביזרים</button>
         </div>
     </div>
 
@@ -397,6 +398,7 @@
         const exchangeRate = 3.82; 
 
         const catalog = [
+            { id: 7, name: "קולמוס נירוסטה מקצועי", category: "אביזרים", priceILS: 10, priceUSD: 2.6, img: "https://images.unsplash.com/photo-1585336139118-132f7f21503e?q=80&w=800", desc: "קולמוס עמיד ומדויק לכתיבת סת\"ם, נוח לאחיזה ומאריך ימים.", stock: "במלאי שוטף", lowStock: false, views: 120 },
             { id: 1, name: "ספר תורה פרימיום", category: "ספרי תורה", priceUSD: 58000, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800", desc: "איכות עילית, נכתב ע\"י אמן מומחה בכתב 'בית יוסף'.", stock: "1 יח' זמינה", lowStock: true, views: 12 },
             { id: 2, name: "תפילין עור גסה מהודר", category: "תפילין", priceUSD: 2450, img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=800", desc: "ריבועים מושלמים, עור שור גמור, בדיקת מחשב מלאה.", stock: "במלאי שוטף", lowStock: false, views: 45 },
             { id: 3, name: "מזוזה 'הידור' 15 ס\"מ", category: "מזוזות", priceUSD: 185, img: "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?q=80&w=800", desc: "כתב ברור ומאיר, קלף שילוח מהודר.", stock: "במלאי", lowStock: false, views: 89 },
