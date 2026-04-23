@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="cm8d_DCwtIbzViB0Aos14jc2TJzLiWT1aMGyUKQjQDU"/>
+    <meta name="google-site-verification" content="cm8d_DCwtIbzViB0Aos14jc2TJzLiWT1aMGyUKQjQDU" />
     <title>תפארתך | החנות היוקרתית בעולם לאומנות הסת"ם</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,6 +53,45 @@
 
         .glass-nav { background: rgba(253, 252, 249, 0.9); backdrop-filter: blur(20px); }
 
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #121212;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+        
+        .preloader-logo {
+            animation: preloader-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes preloader-pulse {
+            0%, 100% { opacity: 0.6; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        .loader-bar-container {
+            width: 200px;
+            height: 1px;
+            background: rgba(197, 160, 89, 0.2);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-bar-progress {
+            position: absolute;
+            height: 100%;
+            background: #C5A059;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
         /* Smooth Testimonial Scroll */
         .testimonial-container { mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .testimonial-track { display: flex; animation: scroll 60s linear infinite; width: max-content; }
@@ -92,6 +131,17 @@
     </style>
 </head>
 <body class="font-serif">
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="flex flex-col items-center">
+            <span class="text-4xl md:text-6xl font-black tracking-tighter gold-gradient preloader-logo">תפארתך</span>
+            <span class="text-[9px] md:text-[11px] uppercase tracking-[0.4em] font-sans font-bold text-white/40 mt-2">Elite Sacred Artistry</span>
+            <div class="loader-bar-container">
+                <div class="loader-bar-progress" id="loader-bar"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Top Promo Banner -->
     <div class="bg-red-900 text-white py-1.5 px-4 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] overflow-hidden whitespace-nowrap relative z-[102]">
@@ -429,7 +479,7 @@
         // Catalog augmented with rich descriptions and features for Quick View
         const catalog = [
             { id: 7, name: "קולמוס נירוסטה מקצועי", category: "אביזרים", priceILS: 10, priceUSD: 2.6, img: "https://images.unsplash.com/photo-1585336139118-132f7f21503e?q=80&w=800", desc: "קולמוס עמיד ומדויק לכתיבת סת\"ם.", longDesc: "קולמוס נירוסטה המיועד לסופרי סת\"ם המחפשים דיוק ונוחות. בניגוד לקולמוס קנה רגיל, הנירוסטה מספקת חדות מושלמת ואינה נשחקת במהירות, מה שמבטיח כתיבה אחידה וחלקה של ספרי תורה ותפילין לאורך זמן רב.", features: ["עמידות לאורך שנים", "דיוק מקסימלי באותיות קטנות", "לא דורש השחזה תכופה", "אחיזה ארגונומית"], scribalLevel: "ציוד מקצועי לסופרים", stock: "במלאי שוטף", lowStock: false, views: 124 },
-            { id: 1, name: "ספר תורה פרימיום", category: "ספרי תורה", priceUSD: 58000, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800", desc: "איכות עילית, נכתב בכתב 'בית יוסף'.", longDesc: "ספר תורה זה מהווה את פסגת היצירה של 'תפארתך'. נכתב במשך למעלה משנה וחצי על ידי סופר מוסמך בעל וותק של 20 שנה. הכתב מתאפיין בדיוק הנדסי וביופי אומנותי עוצר נשימה. כל יריעה עברה הגהה ידנית כפולה והגהת מחשב מתקדמת.", features: ["כתב 'בית יוסף' מסורתי", "קלף עבודת יד ברמת פרימיום", "בדיקת מחשב ו-2 בדיקות אדם", "אחריות נצחית לכשרות"], scribalLevel: "רמת אומן (Senior Sofer)", stock: "1 יח' זמינה", lowStock: true, views: 12 },
+            { id: 1, name: "ספר תורה פרימיום", category: "ספרי תורה", priceUSD: 58000, img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800", desc: "איכות עילית, נכתב בכתב 'בית יוסף'.", longDesc: "ספר תורה זה מהווה את פסיגת היצירה של 'תפארתך'. נכתב במשך למעלה משנה וחצי על ידי סופר מוסמך בעל וותק של 20 שנה. הכתב מתאפיין בדיוק הנדסי וביופי אומנותי עוצר נשימה. כל יריעה עברה הגהה ידנית כפולה והגהת מחשב מתקדמת.", features: ["כתב 'בית יוסף' מסורתי", "קלף עבודת יד ברמת פרימיום", "בדיקת מחשב ו-2 בדיקות אדם", "אחריות נצחית לכשרות"], scribalLevel: "רמת אומן (Senior Sofer)", stock: "1 יח' זמינה", lowStock: true, views: 12 },
             { id: 2, name: "תפילין עור גסה מהודר", category: "תפילין", priceUSD: 2450, img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=800", desc: "ריבועים מושלמים, בדיקת מחשב מלאה.", longDesc: "סט תפילין המיוצר מעור שור עבה (עור גסה) המבטיח שמירה על ריבועיות וקדושה לאורך עשרות שנים. הפרשיות נכתבו לאחר טבילה במקווה, על ידי סופר ירא שמיים. הבתים מעובדים בלחץ רב להשגת זווית של 90 מעלות מדויקת להפליא.", features: ["עור בהמה גסה (שור)", "ריבוע ידני וסימטריה מושלמת", "פרשיות ברמת הידור א'", "רצועות עבודת יד שחורות משני הצדדים"], scribalLevel: "מומחה סת\"ם מוסמך", stock: "במלאי שוטף", lowStock: false, views: 45 },
             { id: 3, name: "מזוזה 'הידור' 15 ס\"מ", category: "מזוזות", priceUSD: 185, img: "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?q=80&w=800", desc: "כתב ברור ומאיר, קלף שילוח מהודר.", longDesc: "מזוזה מהודרת ויוקרתית שנכתבה בכתב אחיד, קריא ומושלם. מתאימה במיוחד לדלתות כניסה ולבתים המחפשים הידור ללא פשרות. הקלף עבר תהליך שימור מיוחד המגן עליו מפני לחות ושינויי אקלים.", features: ["גודל 15 ס\"מ תקני", "כתב ברור וקריא ('האר\"י' או 'בית יוסף')", "בדיקת מחשב חינם", "קלף עמיד בלחות"], scribalLevel: "סופר ירא שמיים ומגיה", stock: "במלאי", lowStock: false, views: 89 },
             { id: 4, name: "סט תפילין 'חתנים'", category: "תפילין", priceUSD: 3100, img: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?q=80&w=800", desc: "סט מהודר הכולל נרתיק רקמה בעבודת יד.", longDesc: "המתנה המושלמת לחתן הבר מצווה או לחתן לפני חתונתו. סט המשלב את התפילין האיכותיים ביותר שלנו (עור גסה) יחד עם נרתיק קטיפה יוקרתי ברקמה אישית, כדי לייצר חוויה מרגשת של קדושה והתחלה חדשה.", features: ["סט מלא ומהודר", "כולל רקמת שם אישית", "פרשיות ברמת הידור עילית", "מגיע באריזת מתנה מפוארת"], scribalLevel: "רמת אומן", stock: "סט 1 אחרון", lowStock: true, views: 31 },
@@ -446,7 +496,26 @@
         let activeCategory = 'all';
 
         function init() {
-            AOS.init({ duration: 1000, once: true });
+            // Handle Preloader with artificial progress for "Luxury" feel
+            const loaderBar = document.getElementById('loader-bar');
+            const preloader = document.getElementById('preloader');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                loaderBar.style.width = progress + '%';
+                
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        preloader.style.transform = 'translateY(-100%)';
+                        document.body.style.overflow = '';
+                        AOS.init({ duration: 1000, once: true });
+                    }, 600);
+                }
+            }, 150);
+
             renderCatalog();
             renderTestimonials();
             updateUI();
@@ -575,9 +644,8 @@
             };
 
             const overlay = document.getElementById('quickview-overlay');
-            overlay.classList.remove('hidden'); // Ensure it's not hidden if previously set
+            overlay.classList.remove('hidden'); 
             
-            // Allow layout to render then fade in
             setTimeout(() => {
                 overlay.classList.add('active');
             }, 10);
@@ -590,7 +658,7 @@
             overlay.classList.remove('active');
             setTimeout(() => {
                 document.body.style.overflow = '';
-            }, 400); // Wait for transition
+            }, 400); 
         }
 
         function renderCatalog() {
@@ -602,7 +670,6 @@
                     <div class="relative product-image-wrapper overflow-hidden cursor-pointer" onclick="openQuickView(${item.id})">
                         <img src="${item.img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         
-                        <!-- Hover Overlay (Quick View Hint) -->
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="bg-white text-brand-obsidian px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest shadow-lg flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -708,7 +775,6 @@
                 overlay.classList.remove('opacity-100');
                 setTimeout(() => overlay.classList.add('hidden'), 500);
                 
-                // Only restore body overflow if quickview is also NOT active
                 if(!document.getElementById('quickview-overlay').classList.contains('active')) {
                     document.body.style.overflow = '';
                 }
