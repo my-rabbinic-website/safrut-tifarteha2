@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="google-site-verification" content="cm8d_DCwtIbzViB0Aos14jc2TJzLiWT1aMGyUKQjQDU" />
+    <title>תפארתך | אומנות הסת"ם היוקרתית בעולם</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Noto+Serif+Hebrew:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        serif: ['Frank Ruhl Libre', 'serif'],
+                        tradition: ['Noto Serif Hebrew', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#CBA153',
+                            darkGold: '#9A7B3E',
+                            lightGold: '#E8D4A2',
+                            cream: '#FCFCFA',
+                            obsidian: '#030303',
+                            platinum: '#E5E3DC',
+                            success: '#2D5A27'
+                        }
+                    },
+                    screens: {
+                        'xs': '375px',
+                        '3xl': '1920px',
+                    },
+                    boxShadow: {
+                        'luxury': '0 40px 100px -20px rgba(0, 0, 0, 0.06)',
+                        'luxury-hover': '0 50px 120px -20px rgba(0, 0, 0, 0.12)',
+                        'luxury-gold': '0 30px 80px -15px rgba(203, 161, 83, 0.25)',
+                        'glass': '0 8px 40px 0 rgba(0, 0, 0, 0.04)',
+                    },
+                    transitionTimingFunction: {
+                        'ultra-smooth': 'cubic-bezier(0.19, 1, 0.22, 1)',
+                        'slow-ease': 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root { --brand-gold: #CBA153; scroll-behavior: smooth; }
+        html { scroll-padding-top: 140px; }
+        body { background-color: #FCFCFA; color: #030303; overflow-x: hidden; width: 100%; font-size: 16px; -webkit-tap-highlight-color: transparent; }
+
+        /* Custom Luxury Cursor (Hidden on touch devices) */
+        @media (pointer: fine) {
+            body, a, button, input { cursor: none !important; }
+        }
+        #cursor {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: var(--brand-gold);
+            border-radius: 50%; pointer-events: none; z-index: 10000;
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+            transform: translate(-50%, -50%); mix-blend-mode: difference;
+        }
+        #cursor-follower {
+            position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(203,161,83,0.4);
+            border-radius: 50%; pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%); transition: width 0.4s ease, height 0.4s ease, border-color 0.4s ease;
+        }
+        .cursor-hover #cursor { width: 40px; height: 40px; background: rgba(255,255,255,0.9); mix-blend-mode: normal; }
+        .cursor-hover #cursor-follower { width: 60px; height: 60px; border-color: transparent; }
+
+        /* Custom Ultra-Thin Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBA153; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9A7B3E; }
+
+        /* Refined Luxury Gradients */
+        .gold-gradient {
+            background: linear-gradient(135deg, #A88645 0%, #F4E2B2 50%, #A88645 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-bg-gradient {
+            background: linear-gradient(135deg, #CBA153 0%, #E2C990 50%, #9A7B3E 100%);
+        }
+
+        /* Glassmorphism */
+        .glass-nav { background: rgba(252, 252, 250, 0.90); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.08); }
+
+        /* Cinematic Background Pan */
+        .animate-pan { animation: panImage 40s linear infinite alternate; }
+        @keyframes panImage {
+            0% { transform: scale(1.05) translate(0, 0); }
+            100% { transform: scale(1.15) translate(-1.5%, 1.5%); }
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-indicator {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; opacity: 0.6; z-index: 20;
+        }
+        .scroll-line {
+            width: 1px; height: 60px; background: rgba(255,255,255,0.2); position: relative; overflow: hidden;
+        }
+        .scroll-line::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%;
+            background: var(--brand-gold);
+            animation: scrollLine 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+        }
+        @keyframes scrollLine {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+
+        /* Preloader */
+        #preloader-wrapper { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .preloader-bg-layer { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1); }
+        #preloader-bg-gold { background: #CBA153; z-index: 10000; transition-delay: 0.2s; }
+        #preloader-bg-black { background: #030303; z-index: 10001; }
+        #preloader-content { position: relative; z-index: 10002; display: flex; flex-direction: column; align-items: center; transition: opacity 0.8s ease-out; }
+
+        /* Testimonial Marquee */
+        .testimonial-container { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        .testimonial-track { display: flex; animation: scroll 80s linear infinite; width: max-content; }
+        html[dir="ltr"] .testimonial-track { animation: scroll-ltr 80s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+        @keyframes scroll-ltr { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .testimonial-track:hover { animation-play-state: paused; }
+        
+        /* Mobile Menu Stagger Animation */
+        .menu-link { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+        #mobile-menu.active .menu-link { opacity: 1; transform: translateY(0); }
+        #mobile-menu.active .menu-link:nth-child(1) { transition-delay: 0.1s; }
+        #mobile-menu.active .menu-link:nth-child(2) { transition-delay: 0.2s; }
+        #mobile-menu.active .menu-link:nth-child(3) { transition-delay: 0.3s; }
+        #mobile-menu.active .menu-link:nth-child(4) { transition-delay: 0.4s; }
+        #mobile-menu.active .menu-link:nth-child(5) { transition-delay: 0.5s; }
+
+        /* Modals & Overlays */
+        #quickview-overlay.active { opacity: 1; pointer-events: auto; }
+        #quickview-content { transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ease; transform: scale(0.95) translateY(20px); opacity: 0; }
+        #quickview-overlay.active #quickview-content { transform: scale(1) translateY(0); opacity: 1; }
+        #mobile-menu.active { opacity: 1; pointer-events: auto; }
+        
+        /* Scroll to Top */
+        #scroll-to-top { opacity: 0; pointer-events: none; transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); transform: translateY(40px) scale(0.8); }
+        #scroll-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+
+        /* Direction agnostic & Layout */
+        html[dir="ltr"] .dir-text-right { text-align: left; }
+        .fluid-title { font-size: clamp(3.2rem, 8vw, 9.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+        .fluid-subtitle { font-size: clamp(1.1rem, 2vw + 0.5rem, 1.85rem); font-weight: 300; }
+        .hairline-gold { height: 1px; background: linear-gradient(90deg, transparent, rgba(203,161,83,0.6), transparent); width: 100%; }
+        
+        /* Premium Input */
+        .input-editorial {
+            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.15); border-radius: 0;
+            padding: 12px 0; transition: all 0.4s ease; box-shadow: none !important;
+        }
+        .input-editorial:focus { border-bottom-color: var(--brand-gold); outline: none; }
+
+        /* Subtle Image Reveal */
+        .reveal-img { position: relative; overflow: hidden; }
+        .reveal-img::after {
+            content: ''; position: absolute; inset: 0; background: #FCFCFA; z-index: 10;
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1); transform-origin: top;
+        }
+        .aos-animate .reveal-img::after { transform: scaleY(0); }
+
+        /* Luxury Material Texture (Noise) */
+        .bg-noise { position: relative; }
+        .bg-noise::before {
+            content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Magnetic Button Glow */
+        .magnetic-btn { position: relative; display: inline-flex; justify-content: center; align-items: center; }
+        .magnetic-btn::after {
+            content: ''; position: absolute; inset: -10px; border-radius: inherit; background: radial-gradient(circle at center, rgba(203,161,83,0.3) 0%, transparent 60%);
+            opacity: 0; transition: opacity 0.3s; z-index: -1; pointer-events: none;
+        }
+        .magnetic-btn:hover::after { opacity: 1; }
+    </style>
+</head>
+<body class="font-serif text-brand-obsidian overflow-hidden">
+
+    <!-- Custom Cursor Elements -->
+    <div id="cursor" class="hidden lg:block"></div>
+    <div id="cursor-follower" class="hidden lg:block"></div>
+
+    <!-- Cinematic Preloader -->
+    <div id="preloader-wrapper">
+        <div id="preloader-bg-gold" class="preloader-bg-layer"></div>
+        <div id="preloader-bg-black" class="preloader-bg-layer"></div>
+        
+        <div id="preloader-content">
+            <div class="relative flex items-center justify-center mb-16">
+                <div class="absolute w-40 h-40 md:w-64 md:h-64 border-t-[1px] border-r-[1px] border-brand-gold/30 rounded-full animate-spin" style="animation-duration: 8s;"></div>
+                <div class="absolute w-32 h-32 md:w-52 md:h-52 border-b-[1px] border-l-[1px] border-brand-lightGold/40 rounded-full animate-[spin_6s_linear_infinite_reverse]"></div>
+                <div class="w-24 h-24 md:w-32 md:h-32 bg-brand-obsidian rounded-full flex items-center justify-center border border-brand-gold/20 shadow-[0_0_80px_rgba(203,161,83,0.15)] z-10">
+                    <svg class="w-8 h-8 md:w-12 md:h-12 text-brand-gold opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+            </div>
+            <span class="text-6xl md:text-8xl font-black tracking-[0.15em] gold-gradient mb-6 leading-none cursor-interactive">תפארתך</span>
+            <span class="text-[9px] md:text-[12px] uppercase tracking-[1em] md:tracking-[1.2em] font-sans font-bold text-brand-lightGold/60 mb-20 pl-2">Elite Sacred Artistry</span>
+            
+            <div class="w-64 md:w-96 h-[1px] bg-white/5 relative overflow-hidden">
+                <div id="loader-bar" class="absolute top-0 rtl:right-0 ltr:left-0 h-full bg-brand-gold w-0 transition-all duration-500 ease-out shadow-[0_0_20px_#CBA153]"></div>
+            </div>
+            <span id="loader-percentage" class="text-brand-gold/50 text-[10px] md:text-xs font-mono mt-8 tracking-[0.4em]">0%</span>
+        </div>
+    </div>
+
+    <!-- Collapsible Trust Bar -->
+    <div id="trust-bar" class="bg-brand-obsidian text-brand-gold w-full transition-all duration-[800ms] ease-ultra-smooth overflow-hidden h-[38px] md:h-[44px] flex justify-center items-center fixed top-0 z-[101]">
+        <div class="max-w-[1600px] mx-auto px-4 w-full flex flex-wrap justify-center items-center gap-10 md:gap-32 text-[8px] md:text-[10px] font-black tracking-[0.4em] uppercase">
+            <span class="flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity"><span class="text-brand-lightGold opacity-60 text-xs">🌍</span> <span class="hidden xs:inline" data-i18n="trust_shipping">משלוח מבוטח</span> <span data-i18n="trust_world">לכל העולם</span></span>
+            <span class="flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity"><span class="text-brand-lightGold opacity-60 text-xs">🔒</span> <span class="hidden xs:inline" data-i18n="trust_secure">סליקה מוצפנת</span> SSL</span>
+            <span class="flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity"><span class="text-brand-lightGold opacity-60 text-xs">📜</span> <span class="hidden xs:inline" data-i18n="trust_cert">אישור</span> <span data-i18n="trust_kosher">כשרות מוסמך</span></span>
+        </div>
+    </div>
+
+    <!-- Ultra Luxury Header -->
+    <header id="main-header" class="fixed w-full z-[100] transition-all duration-[800ms] ease-ultra-smooth bg-brand-cream/90 backdrop-blur-[40px] border-b border-black-[0.02] shadow-sm top-[38px] md:top-[44px]">
+        <nav id="main-nav" class="max-w-[1800px] mx-auto px-6 md:px-16 h-24 md:h-[120px] flex justify-between items-center transition-all duration-[800ms] ease-ultra-smooth">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center gap-6 cursor-interactive group shrink-0" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="flex flex-col dir-text-right">
+                    <span class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter gold-gradient leading-none transition-transform duration-[1.5s] ease-out group-hover:scale-105" data-i18n="brand_name">תפארתך</span>
+                    <span class="text-[7px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.6em] font-sans font-bold text-gray-400 mt-2.5 md:mt-3 pl-1">Elite Sacred Artistry</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden xl:flex gap-14 text-[11px] font-black uppercase tracking-[0.25em] text-gray-500/90 items-center">
+                <a href="#catalog" class="cursor-interactive hover:text-brand-gold transition-colors duration-300" data-i18n="nav_catalog">קטלוג מוצרים</a>
+                <span class="w-[3px] h-[3px] bg-brand-gold/30 rounded-full"></span>
+                <a href="#process" class="cursor-interactive hover:text-brand-gold transition-colors duration-300" data-i18n="nav_quality">הידור ואיכות</a>
+                <span class="w-[3px] h-[3px] bg-brand-gold/30 rounded-full"></span>
+                <a href="#about" class="cursor-interactive hover:text-brand-gold transition-colors duration-300" data-i18n="nav_about">עלינו</a>
+                <span class="w-[3px] h-[3px] bg-brand-gold/30 rounded-full"></span>
+                <a href="#reviews" class="cursor-interactive hover:text-brand-gold transition-colors duration-300" data-i18n="nav_reviews">המלצות</a>
+                <span class="w-[3px] h-[3px] bg-brand-gold/30 rounded-full"></span>
+                <a href="#contact" class="cursor-interactive hover:text-brand-gold transition-colors duration-300" data-i18n="nav_contact">צור קשר</a>
+            </div>
+
+            <!-- Interaction Section -->
+            <div class="flex items-center gap-5 md:gap-8">
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" id="lang-toggle" aria-label="Toggle Language" class="cursor-interactive hidden xs:block px-5 py-2.5 text-[9px] font-black uppercase tracking-[0.3em] rounded-full border border-gray-200 hover:border-brand-gold text-brand-obsidian hover:text-brand-gold transition-all duration-500">
+                    EN
+                </button>
+
+                <!-- Search Trigger -->
+                <button onclick="toggleSearch()" aria-label="Search" class="cursor-interactive p-3 hover:text-brand-gold transition-colors duration-300 text-gray-500">
+                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+
+                <!-- Currency Toggler -->
+                <div class="hidden lg:flex items-center bg-white shadow-glass p-1.5 rounded-full border border-black/5 cursor-interactive">
+                    <button onclick="setCurrency('USD')" id="btn-usd" aria-label="Currency USD" class="px-6 py-2.5 text-[10px] font-black rounded-full transition-all duration-500 bg-brand-obsidian text-brand-gold shadow-sm tracking-widest">USD $</button>
+                    <button onclick="setCurrency('ILS')" id="btn-ils" aria-label="Currency ILS" class="px-6 py-2.5 text-[10px] font-black rounded-full transition-all duration-500 text-gray-400 hover:text-brand-obsidian tracking-widest">ILS ₪</button>
+                </div>
+
+                <!-- Shopping Cart Button (Wishlist) -->
+                <button onclick="toggleCart()" aria-label="Wishlist" class="cursor-interactive relative p-4 md:p-5 bg-brand-obsidian text-brand-gold rounded-full shadow-luxury hover:shadow-luxury-gold hover:-translate-y-1 transition-all duration-700 ease-ultra-smooth flex items-center gap-4 px-6 md:px-10 group border border-brand-gold/10">
+                    <span id="cart-count" class="bg-brand-gold text-brand-obsidian text-[10px] md:text-xs w-5 h-5 rounded-full flex items-center justify-center font-black shadow-[0_0_10px_rgba(203,161,83,0.5)]">0</span>
+                    <span class="hidden 2xl:inline text-[9px] font-black uppercase tracking-[0.3em] text-white group-hover:text-brand-lightGold transition-colors duration-500" data-i18n="nav_cart">האוסף שלי</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" /></svg>
+                </button>
+
+                <!-- Hamburger Menu -->
+                <button onclick="toggleMobileMenu()" aria-label="Menu" class="cursor-interactive xl:hidden p-2 hover:text-brand-gold transition-colors duration-300 text-brand-obsidian">
+                    <svg class="w-8 h-8 md:w-9 md:h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full Screen Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-obsidian/98 backdrop-blur-3xl z-[500] opacity-0 pointer-events-none transition-all duration-700 ease-ultra-smooth flex flex-col items-center justify-center px-6 text-center">
+        <button onclick="toggleMobileMenu()" aria-label="Close Menu" class="absolute top-10 right-10 md:top-14 md:right-14 text-white/40 hover:text-brand-gold transition-colors duration-300 p-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <div class="flex flex-col items-center gap-10 md:gap-14 text-2xl md:text-5xl font-black uppercase tracking-[0.25em]">
+            <a href="#catalog" onclick="toggleMobileMenu()" class="menu-link text-white hover:text-brand-gold transition-colors" data-i18n="nav_catalog">קטלוג מוצרים</a>
+            <a href="#process" onclick="toggleMobileMenu()" class="menu-link text-white hover:text-brand-gold transition-colors" data-i18n="nav_quality">הידור ואיכות</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="menu-link text-white hover:text-brand-gold transition-colors" data-i18n="nav_about">עלינו</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="menu-link text-white hover:text-brand-gold transition-colors" data-i18n="nav_reviews">המלצות</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="menu-link text-white hover:text-brand-gold transition-colors" data-i18n="nav_contact">צור קשר</a>
+            
+            <div class="w-12 h-[1px] bg-brand-gold/30 my-6 menu-link"></div>
+            
+            <div class="flex flex-col gap-8 items-center w-full max-w-sm menu-link">
+                <button onclick="toggleLanguage(); toggleMobileMenu()" id="mobile-lang-toggle" class="w-full py-5 text-xs md:text-sm font-black uppercase tracking-[0.4em] rounded-full border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all duration-500">
+                    SWITCH TO ENGLISH
+                </button>
+                <div class="flex items-center bg-white/5 p-2.5 rounded-full border border-white/10 w-full">
+                    <button onclick="setCurrency('USD'); toggleMobileMenu()" id="mob-btn-usd" class="flex-1 py-4 text-xs font-black rounded-full transition-all duration-500 bg-white text-brand-obsidian tracking-widest">USD $</button>
+                    <button onclick="setCurrency('ILS'); toggleMobileMenu()" id="mob-btn-ils" class="flex-1 py-4 text-xs font-black rounded-full transition-all duration-500 text-white/40 tracking-widest">ILS ₪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="app-content" class="pt-[120px] md:pt-[164px]">
+        <!-- Cinematic Hero Section -->
+        <section class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-brand-obsidian bg-noise">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070')] bg-cover bg-center opacity-40 mix-blend-luminosity animate-pan"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/40 to-brand-obsidian/10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r rtl:from-brand-obsidian rtl:to-transparent ltr:from-transparent ltr:to-brand-obsidian opacity-90"></div>
+            
+            <!-- Sacred Sparks Canvas -->
+            <canvas id="sparks-canvas" class="absolute inset-0 z-10 pointer-events-none opacity-60"></canvas>
+            
+            <div class="max-w-[1800px] mx-auto px-6 md:px-16 w-full relative z-20 py-24 md:py-32">
+                <div class="max-w-[60rem] dir-text-right" data-aos="fade-up" data-aos-duration="1800" data-aos-easing="ease-out-cubic">
+                    <div class="flex items-center gap-6 md:gap-8 mb-10 md:mb-14">
+                        <div class="w-16 md:w-32 h-[1px] bg-brand-gold"></div>
+                        <span class="text-[9px] md:text-[11px] font-black uppercase tracking-[0.6em] md:tracking-[1em] text-brand-lightGold opacity-90" data-i18n="hero_tag">Worldwide Elite Standard</span>
+                    </div>
+                    <h1 class="fluid-title font-black italic text-white mb-10 md:mb-14 drop-shadow-2xl">
+                        <span data-i18n="hero_title1">החנות הבטוחה</span> <br><span data-i18n="hero_title2">בעולם</span> <span class="gold-gradient" data-i18n="hero_title3">ליצירות קודש.</span>
+                    </h1>
+                    <p class="fluid-subtitle text-gray-300/90 mb-16 md:mb-24 font-tradition leading-[2] max-w-4xl italic font-light opacity-90" data-i18n="hero_desc">
+                        בית היוצר מנתיבות המציב את הסטנדרט העולמי לאיכות, שירות וביטחון. יצירות מופת של סת"ם עם אחריות לכל החיים, בהשראת מורשת הקודש של סידנא בבא סאלי זיע"א.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 md:gap-10 items-start sm:items-center">
+                        <a href="#catalog" class="cursor-interactive magnetic-btn w-full sm:w-auto text-center px-12 md:px-24 py-6 md:py-8 gold-bg-gradient text-white font-black text-xs md:text-sm uppercase tracking-[0.3em] md:tracking-[0.4em] rounded-full shadow-[0_20px_50px_rgba(203,161,83,0.3)] hover:shadow-[0_30px_60px_rgba(203,161,83,0.5)] transition-all duration-300 transform" data-i18n="hero_btn1">
+                            כניסה לקטלוג המאובטח
+                        </a>
+                        <button onclick="openVideoModal()" aria-label="Play Video" class="cursor-interactive magnetic-btn w-full sm:w-auto flex items-center justify-center gap-6 md:gap-8 p-3 rtl:pl-10 rtl:pr-3 ltr:pr-10 ltr:pl-3 rounded-full border border-white/10 hover:border-brand-gold/60 glass-panel hover:bg-white/10 transition-all duration-300 group">
+                            <div class="w-14 h-14 md:w-16 md:h-16 bg-white text-brand-obsidian rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-[800ms] ease-ultra-smooth shadow-lg">
+                                <svg class="w-5 h-5 md:w-6 md:h-6 rtl:ml-1 ltr:mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-white group-hover:text-brand-lightGold transition-colors duration-500" data-i18n="hero_btn2">תהליך היצירה</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle Scroll Indicator -->
+            <div class="scroll-indicator">
+                <span class="text-[8px] font-black uppercase tracking-[0.4em] text-white/40 mb-4" data-i18n="scroll_down">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Foundation Section (The Process) -->
+        <section id="process" class="py-32 md:py-56 bg-brand-cream relative z-20 -mt-16 md:-mt-24 rounded-t-[3rem] md:rounded-t-[5rem] shadow-[0_-30px_80px_rgba(0,0,0,0.08)]">
+            <div class="max-w-[1800px] mx-auto px-8 md:px-16">
+                <div class="text-center mb-24 md:mb-40" data-aos="fade-up" data-aos-duration="1200">
+                    <span class="text-brand-gold font-black tracking-[0.5em] text-[9px] md:text-[11px] uppercase block mb-8 opacity-80" data-i18n="process_tag">The Foundation</span>
+                    <h2 class="text-4xl md:text-7xl font-black italic text-brand-obsidian leading-tight" data-i18n="process_title">אבני היסוד <span class="gold-gradient">של תפארתך</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-0 relative">
+                    <!-- Decorative connecting line for desktop -->
+                    <div class="hidden lg:block absolute top-16 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+                    <div class="text-center dir-text-right lg:text-center group relative z-10 lg:px-12" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1200">
+                        <div class="w-24 h-24 md:w-36 md:h-36 mx-auto mb-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-brand-gold group-hover:border-brand-gold/40 group-hover:shadow-luxury-gold transition-all duration-[800ms] ease-ultra-smooth shadow-glass cursor-interactive">
+                            <svg class="w-10 h-10 md:w-14 md:h-14 stroke-[1px] md:stroke-[0.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl md:text-4xl font-black italic mb-6 text-brand-obsidian" data-i18n="val1_title">קדושה וטהרה</h3>
+                        <p class="text-gray-500 font-tradition text-base md:text-xl leading-[2] font-light max-w-sm mx-auto" data-i18n="val1_desc">כל כתיבה מתחילה בטבילה במקווה ובהכנה רוחנית. הסופרים שלנו הם יראי שמיים המקפידים על קלה כבחמורה, ליצירת קלף שהוא משכן ראוי.</p>
+                    </div>
+                    
+                    <div class="text-center dir-text-right lg:text-center group relative z-10 lg:px-12 lg:border-x border-black/5" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200">
+                        <div class="w-24 h-24 md:w-36 md:h-36 mx-auto mb-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-brand-gold group-hover:border-brand-gold/40 group-hover:shadow-luxury-gold transition-all duration-[800ms] ease-ultra-smooth shadow-glass cursor-interactive">
+                            <svg class="w-10 h-10 md:w-14 md:h-14 stroke-[1px] md:stroke-[0.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl md:text-4xl font-black italic mb-6 text-brand-obsidian" data-i18n="val2_title">מסורת אומנותית</h3>
+                        <p class="text-gray-500 font-tradition text-base md:text-xl leading-[2] font-light max-w-sm mx-auto" data-i18n="val2_desc">שימוש בדיו לנצח המיוצר בנוסחה עתיקה, על גבי קלף עבודת יד משובח המבטיח שהכתב יאיר וישמר למשך עשרות שנים.</p>
+                    </div>
+                    
+                    <div class="text-center dir-text-right lg:text-center group relative z-10 lg:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+                        <div class="w-24 h-24 md:w-36 md:h-36 mx-auto mb-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-brand-gold group-hover:border-brand-gold/40 group-hover:shadow-luxury-gold transition-all duration-[800ms] ease-ultra-smooth shadow-glass cursor-interactive">
+                            <svg class="w-10 h-10 md:w-14 md:h-14 stroke-[1px] md:stroke-[0.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl md:text-4xl font-black italic mb-6 text-brand-obsidian" data-i18n="val3_title">הגהה ואחריות</h3>
+                        <p class="text-gray-500 font-tradition text-base md:text-xl leading-[2] font-light max-w-sm mx-auto" data-i18n="val3_desc">מערך ביקורת משולש וקפדני: שתי בדיקות מחמירות על ידי מגיהים מוסמכים, ובדיקת מחשב מתקדמת למניעת טעויות אנוש.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Filter -->
+        <div id="category-bar" class="bg-brand-cream border-y border-black/5 py-6 md:py-10 sticky top-[80px] md:top-[120px] z-[90] transition-all duration-700 ease-ultra-smooth">
+            <div class="max-w-[1800px] mx-auto px-6 md:px-16 flex overflow-x-auto no-scrollbar justify-start xl:justify-center gap-4 md:gap-8 items-center pb-2 md:pb-0">
+                <button onclick="filterByCategory('all')" class="category-btn active cursor-interactive whitespace-nowrap px-8 md:px-14 py-3.5 md:py-5 rounded-full border border-brand-gold bg-brand-gold text-white text-[10px] md:text-xs font-black uppercase tracking-[0.25em] shadow-luxury-gold transition-all duration-500" data-i18n="cat_all">הכל</button>
+                <button onclick="filterByCategory('ספרי תורה')" class="category-btn cursor-interactive whitespace-nowrap px-8 md:px-14 py-3.5 md:py-5 rounded-full border border-gray-200 hover:border-brand-gold transition-all text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-gray-500 hover:text-brand-obsidian bg-white duration-500" data-i18n="cat_torah">ספרי תורה</button>
+                <button onclick="filterByCategory('תפילין')" class="category-btn cursor-interactive whitespace-nowrap px-8 md:px-14 py-3.5 md:py-5 rounded-full border border-gray-200 hover:border-brand-gold transition-all text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-gray-500 hover:text-brand-obsidian bg-white duration-500" data-i18n="cat_tefillin">תפילין</button>
+                <button onclick="filterByCategory('מזוזות')" class="category-btn cursor-interactive whitespace-nowrap px-8 md:px-14 py-3.5 md:py-5 rounded-full border border-gray-200 hover:border-brand-gold transition-all text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-gray-500 hover:text-brand-obsidian bg-white duration-500" data-i18n="cat_mezuzah">מזוזות</button>
+                <button onclick="filterByCategory('מגילות')" class="category-btn cursor-interactive whitespace-nowrap px-8 md:px-14 py-3.5 md:py-5 rounded-full border border-gray-200 hover:border-brand-gold transition-all text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-gray-500 hover:text-brand-obsidian bg-white duration-500" data-i18n="cat_megillah">מגילות</button>
+            </div>
+        </div>
+
+        <!-- Product Catalog -->
+        <section id="catalog" class="py-24 md:py-48 bg-brand-cream relative min-h-[60vh]">
+            <div class="max-w-[1800px] mx-auto px-6 md:px-16">
+                <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 md:gap-20">
+                    <!-- Data injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Upgraded Editorial About Section -->
+        <section id="about" class="py-32 md:py-56 bg-white overflow-hidden relative">
+            <div class="hairline-gold absolute top-0 left-0"></div>
+            
+            <div class="max-w-[1800px] mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-24 md:gap-40 items-center">
+                 <div class="dir-text-right relative" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+                    <span class="text-brand-gold font-black tracking-[0.5em] text-[10px] md:text-xs uppercase block mb-10 opacity-80" data-i18n="about_tag">Our Heritage</span>
+                    <h2 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black italic text-brand-obsidian mb-12 leading-[1.05]" data-i18n="about_title">מורשת של <br><span class="gold-gradient">קדושה ואומנות</span></h2>
+                    
+                    <div class="space-y-8 text-lg md:text-2xl font-tradition text-gray-500 leading-[2.2] italic font-light">
+                        <p data-i18n="about_p1">בסטודיו "תפארתך" השוכן בעיר נתיבות, סופרי הסת"ם שלנו ממשיכים מסורת של דורות. עבורנו, עור הבהמה אינו רק חומר גלם – תחת ידי האומן הוא מזדכך והופך לקלף טהור, המשכן בתוכו את המילים הקדושות והנשגבות ביותר ביהדות.</p>
+                        <p data-i18n="about_p2">אנו משלבים בהרמוניה בין הכלים המסורתיים שהועברו אלינו מאבותינו – קולמוס קנה טבעי, דיו עתיק בעל ברק ייחודי וקלף עבודת יד – לבין טכנולוגיות ההגהה המתקדמות ביותר בעולם. שילוב זה מבטיח שכל יצירה היוצאת מהסטודיו תהיה לא פחות ממושלמת.</p>
+                    </div>
+                    
+                    <div class="mt-20 pt-16 border-t border-black/5 flex items-center gap-8 md:gap-10">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-cream rounded-full flex items-center justify-center border border-black/5 shadow-glass shrink-0">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-8 h-8 md:w-10 md:h-10 opacity-80" alt="Google">
+                        </div>
+                        <div>
+                            <p class="font-black text-brand-obsidian text-lg md:text-xl tracking-wide mb-2" data-i18n="about_review_title">מדורג 5.0 בעולם</p>
+                            <p class="text-[9px] md:text-[11px] uppercase tracking-[0.3em] text-brand-gold font-bold" data-i18n="about_review_sub">מבוסס על מאות רוכשים וקהילות</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="relative h-[600px] md:h-[800px] rounded-[3rem] md:rounded-[5rem] overflow-hidden shadow-luxury-hover transition-all duration-[1.5s] ease-ultra-smooth reveal-img group cursor-interactive" data-aos="fade-left" data-aos-duration="2000" data-aos-easing="ease-out-cubic">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s] ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-obsidian/95 via-brand-obsidian/20 to-transparent"></div>
+                    <div class="absolute bottom-16 rtl:right-16 ltr:left-16 text-white transition-transform duration-1000 group-hover:-translate-y-2">
+                        <p class="text-brand-gold font-black uppercase tracking-[0.5em] text-[10px] md:text-xs mb-4 opacity-90" data-i18n="about_img_tag">The Studio</p>
+                        <p class="font-serif text-4xl md:text-5xl italic tracking-wide" data-i18n="about_img_title">Netivot, Israel</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Premium Testimonials Section -->
+        <section id="reviews" class="py-32 md:py-56 bg-brand-cream overflow-hidden border-t border-brand-platinum">
+            <div class="max-w-[1800px] mx-auto px-6 md:px-16 mb-24 md:mb-40 text-center">
+                <div class="inline-flex items-center gap-5 bg-white px-10 md:px-12 py-4 md:py-5 rounded-full border border-black/5 shadow-glass mb-12 md:mb-16" data-aos="fade-up" data-aos-duration="1200">
+                    <svg class="w-6 h-6 md:w-7 md:h-7 text-brand-gold" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span class="text-brand-obsidian font-black tracking-[0.3em] md:tracking-[0.4em] text-[10px] md:text-xs uppercase" data-i18n="reviews_tag">Verified Global Feedback</span>
+                </div>
+                <h2 class="text-5xl md:text-7xl lg:text-[6.5rem] font-black italic text-brand-obsidian leading-[1.05]" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200">
+                    <span data-i18n="reviews_title">קהילה עולמית</span> <br class="md:hidden"><span class="gold-gradient" data-i18n="reviews_title2">שסומכת עלינו</span>
+                </h2>
+            </div>
+            
+            <div class="relative flex overflow-hidden py-10 md:py-24 testimonial-container cursor-interactive">
+                <div class="testimonial-track gap-12 md:gap-20 px-6" id="track-1"></div>
+                <div class="testimonial-track gap-12 md:gap-20 px-6" id="track-2"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quick View Modal (Ultra Luxury) -->
+    <div id="quickview-overlay" class="fixed inset-0 bg-brand-obsidian/95 backdrop-blur-3xl z-[600] opacity-0 pointer-events-none transition-opacity duration-700 flex items-center justify-center p-4 md:p-16" onclick="if(event.target === this) closeQuickView()">
+        <div id="quickview-content" class="bg-white w-full max-w-[1600px] rounded-[2.5rem] md:rounded-[4rem] shadow-2xl flex flex-col lg:flex-row overflow-hidden relative transform scale-95 opacity-0 max-h-[95vh] md:max-h-[90vh]">
+            
+            <button onclick="closeQuickView()" aria-label="Close" class="absolute top-6 left-6 md:top-12 md:left-12 z-30 bg-white/90 backdrop-blur-xl p-4 md:p-5 rounded-full shadow-luxury text-brand-obsidian hover:bg-brand-gold hover:text-white transition-all duration-500 ease-ultra-smooth cursor-interactive">
+                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- Image Section -->
+            <div class="w-full lg:w-[45%] h-[35vh] lg:h-auto relative bg-brand-cream border-b lg:border-b-0 lg:rtl:border-l lg:ltr:border-r border-black/5 shrink-0 p-8 md:p-24 flex items-center justify-center cursor-interactive">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                <img id="qv-img" src="" class="w-full h-full object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-[3s] ease-out relative z-10">
+                <div class="absolute top-8 right-8 md:top-12 md:right-12 bg-brand-obsidian/95 backdrop-blur-md text-brand-gold text-[9px] md:text-[11px] font-black px-6 md:px-8 py-3 md:py-4 rounded-full shadow-xl uppercase tracking-[0.4em] z-20 border border-brand-gold/20" id="qv-category"></div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="w-full lg:w-[55%] p-10 md:p-24 flex flex-col overflow-y-auto no-scrollbar bg-white dir-text-right relative">
+                <div class="flex items-center gap-4 mb-8 md:mb-10">
+                    <span id="qv-stock-indicator" class="w-3 h-3 md:w-4 md:h-4 rounded-full shadow-[0_0_15px_currentColor]"></span>
+                    <span id="qv-stock-text" class="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-gray-500"></span>
+                </div>
+                
+                <h2 id="qv-title" class="text-4xl md:text-6xl lg:text-7xl font-black italic mb-6 md:mb-8 text-brand-obsidian leading-[1.05]"></h2>
+                <div id="qv-price" class="text-3xl md:text-5xl lg:text-6xl font-black gold-gradient mb-12 md:mb-16 font-serif"></div>
+                
+                <p id="qv-desc" class="text-base md:text-2xl font-tradition italic text-gray-500 leading-[2.2] mb-14 md:mb-20 pb-14 md:pb-20 border-b border-black/5 font-light"></p>
+                
+                <div class="mb-14 md:mb-20">
+                    <h4 class="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-brand-darkGold mb-8 md:mb-10 opacity-80" data-i18n="qv_specs">מפרט הידור:</h4>
+                    <ul id="qv-features" class="space-y-5 md:space-y-6"></ul>
+                </div>
+
+                <div class="mb-14 md:mb-20">
+                    <h4 class="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-brand-darkGold mb-5 md:mb-6 opacity-80" data-i18n="qv_level">רמת סופר:</h4>
+                    <p id="qv-scribal" class="font-black italic text-brand-obsidian text-xl md:text-3xl"></p>
+                </div>
+
+                <div class="mt-auto pt-10 flex flex-col sm:flex-row gap-6 md:gap-8 border-t border-black/5">
+                    <a id="qv-buy-btn" href="#" target="_blank" class="cursor-interactive magnetic-btn flex-1 py-7 md:py-8 bg-brand-obsidian text-brand-gold font-black uppercase text-xs md:text-sm tracking-[0.4em] rounded-2xl hover:bg-brand-darkGold hover:text-white shadow-luxury-hover active:scale-95 transition-all duration-500 flex justify-center items-center gap-4">
+                        <span data-i18n="buy_now">רכישה מאובטחת</span>
+                    </a>
+                    <button id="qv-wishlist-btn" onclick="toggleWishlistFromModal()" class="cursor-interactive sm:w-1/3 py-7 md:py-8 border border-brand-platinum text-gray-500 font-black uppercase text-xs md:text-sm tracking-[0.4em] rounded-2xl hover:border-brand-gold hover:text-brand-obsidian transition-all duration-500 flex justify-center items-center gap-3">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" id="qv-wishlist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span data-i18n="nav_cart">מועדפים</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-brand-obsidian/98 backdrop-blur-3xl z-[600] hidden flex flex-col items-center justify-center p-8 md:p-16 transition-all duration-700 opacity-0">
+        <button onclick="toggleSearch()" aria-label="Close Search" class="cursor-interactive absolute top-10 left-10 md:top-16 md:left-16 text-brand-gold hover:rotate-90 transition-transform duration-700 p-4">
+            <svg class="w-10 h-10 md:w-16 md:h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-full max-w-[1400px] dir-text-right mt-16 md:mt-0">
+            <h2 class="text-5xl md:text-8xl font-black italic gold-gradient mb-12 md:mb-20" data-i18n="search_title">מה תרצו למצוא?</h2>
+            <input type="text" id="search-input" oninput="filterCatalogSearch(this.value)" placeholder="חפשו ספר תורה, תפילין, מזוזות..." class="cursor-interactive w-full bg-transparent border-b-[2px] md:border-b-[4px] border-brand-gold/30 focus:border-brand-gold py-6 md:py-12 text-3xl md:text-7xl font-tradition text-white outline-none placeholder:opacity-20 transition-colors duration-500 font-light" data-i18n-placeholder="search_placeholder">
+            <div id="search-results" class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 mt-16 md:mt-24 max-h-[50vh] overflow-y-auto no-scrollbar pb-16"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-interactive fixed bottom-8 right-6 md:bottom-12 md:right-12 z-[140] w-14 h-14 md:w-16 md:h-16 bg-white/90 backdrop-blur-xl border border-black/5 rounded-full flex items-center justify-center text-brand-obsidian shadow-luxury hover:bg-brand-gold hover:text-white transition-all duration-700 ease-ultra-smooth hover:-translate-y-2">
+        <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <!-- WhatsApp Floating Widget -->
+    <a href="https://wa.me/972528219928?text=שלום, אני מעוניין בייעוץ בנוגע לרכישת מוצר סת\"ם מהודר" aria-label="WhatsApp" target="_blank" class="cursor-interactive fixed bottom-8 left-6 md:bottom-12 md:left-12 z-[150] whatsapp-float flex items-center gap-4 md:gap-6 bg-[#25D366] text-white px-6 md:px-8 py-4 md:py-5 rounded-full shadow-2xl transition-all duration-500 hover:scale-105">
+        <div class="flex flex-col rtl:text-left ltr:text-right leading-tight hidden sm:flex">
+            <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] opacity-80">Direct Line</span>
+            <span class="text-sm md:text-base font-black tracking-widest" data-i18n="wa_consult">ייעוץ אישי</span>
+        </div>
+        <svg class="w-7 h-7 md:w-9 md:h-9 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.004 12.045c0 2.12.556 4.19 1.613 6.04L0 24l6.104-1.601a11.82 11.82 0 005.94 1.605h.005c6.637 0 12.05-5.414 12.05-12.05 0-3.212-1.25-6.231-3.518-8.5z"/></svg>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-obsidian text-white pt-32 md:pt-48 pb-16 relative overflow-hidden dir-text-right border-t border-brand-gold/20 bg-noise">
+        <div class="max-w-[1800px] mx-auto px-8 md:px-16 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-20 md:gap-32">
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <span class="text-6xl md:text-8xl font-black italic gold-gradient block mb-12 md:mb-16 leading-none" data-i18n="brand_name">תפארתך</span>
+                    <p class="text-gray-400 font-tradition italic text-xl md:text-3xl leading-loose mb-16 font-light" data-i18n="footer_desc">
+                        מנגישים את הסטנדרט הגבוה ביותר של יצירות סת"ם מארץ הקודש לכל יהודי בעולם. מסורת של דורות, איכות של המחר.
+                    </p>
+                    <div class="flex items-center gap-0 w-full max-w-lg cursor-interactive">
+                        <input type="email" placeholder="הצטרפו לניוזלטר האקסקלוסיבי..." class="input-editorial w-full text-lg md:text-xl font-tradition italic text-white placeholder:text-gray-600" data-i18n-placeholder="footer_news">
+                        <button class="text-brand-gold hover:text-white transition-colors duration-300 p-3"><svg class="w-8 h-8 rtl:rotate-0 ltr:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                    </div>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] md:text-[11px] mb-10 opacity-80" data-i18n="footer_nav">ניווט מהיר</h4>
+                    <ul class="space-y-6 md:space-y-8 text-gray-300 text-sm md:text-lg font-bold tracking-widest">
+                        <li><button onclick="window.scrollTo(0,0)" class="cursor-interactive hover:text-brand-gold transition-colors" data-i18n="nav_home">בית</button></li>
+                        <li><a href="#catalog" class="cursor-interactive hover:text-brand-gold transition-colors" data-i18n="nav_catalog">קטלוג מוצרים</a></li>
+                        <li><a href="#process" class="cursor-interactive hover:text-brand-gold transition-colors" data-i18n="nav_quality">הידור ואיכות</a></li>
+                        <li><a href="#about" class="cursor-interactive hover:text-brand-gold transition-colors" data-i18n="nav_about">עלינו</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] md:text-[11px] mb-10 opacity-80" data-i18n="footer_service">שירות לקוחות</h4>
+                    <ul class="space-y-6 md:space-y-8 text-gray-300 text-sm md:text-lg font-bold tracking-widest">
+                        <li><a href="tel:+972528219928" class="cursor-interactive hover:text-brand-gold transition-colors dir-ltr inline-block">+972-52-821-9928</a></li>
+                        <li><a href="mailto:office@tiferetcha.com" class="cursor-interactive hover:text-brand-gold transition-colors">office@tiferetcha.com</a></li>
+                        <li class="text-brand-gold/60 text-xs md:text-sm mt-10 font-normal leading-loose" data-i18n="footer_address">הסטודיו הראשי:<br>נתיבות, ישראל.<br>זמינים לשירותכם מכל העולם.</li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] md:text-[11px] mb-10 opacity-80">Secure Payments</h4>
+                    <div class="grid grid-cols-2 gap-4 md:gap-6">
+                        <div class="bg-white/5 p-6 md:p-8 rounded-[1.5rem] border border-white/5 flex justify-center items-center hover:border-brand-gold/50 transition-all duration-500 hover:bg-white/10"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-5 md:h-6 brightness-200 opacity-90"></div>
+                        <div class="bg-white/5 p-6 md:p-8 rounded-[1.5rem] border border-white/5 flex justify-center items-center hover:border-brand-gold/50 transition-all duration-500 hover:bg-white/10"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-5 md:h-6 brightness-200 opacity-90"></div>
+                        <div class="bg-white/5 p-6 md:p-8 rounded-[1.5rem] border border-white/5 flex justify-center items-center hover:border-brand-gold/50 transition-all duration-500 hover:bg-white/10"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5 md:h-6 brightness-200 opacity-90"></div>
+                        <div class="bg-white/5 p-6 md:p-8 rounded-[1.5rem] border border-white/5 flex justify-center items-center hover:border-brand-gold/50 transition-all duration-500 hover:bg-white/10"><span class="text-[9px] md:text-[11px] font-black italic tracking-[0.2em] text-center text-white/50">SSL<br>PROTECTED</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-40 md:mt-48 pt-12 md:pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-gray-600 gap-8 md:gap-0">
+                <p class="text-[9px] md:text-[11px] uppercase font-black tracking-[0.4em] pb-24 md:pb-0 opacity-80">© 2024 Tifarteha. Premium Global Scribal distribution.</p>
+                <div class="flex gap-10 text-[9px] md:text-[11px] uppercase font-black tracking-[0.4em] pb-24 md:pb-0 opacity-80">
+                    <a href="#" class="cursor-interactive hover:text-brand-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="cursor-interactive hover:text-brand-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-12 hidden">
+        <div class="absolute inset-0 bg-brand-obsidian/98 backdrop-blur-3xl" onclick="closeVideoModal()"></div>
+        <div class="w-full max-w-[1600px] relative z-[1001] modal-content aspect-video bg-black rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_0_120px_rgba(203,161,83,0.15)] border border-brand-gold/20">
+            <button onclick="closeVideoModal()" aria-label="Close Video" class="cursor-interactive absolute top-6 left-6 md:top-12 md:left-12 z-10 text-white bg-black/50 backdrop-blur-xl p-4 md:p-6 rounded-full hover:bg-brand-gold hover:text-brand-obsidian transition-all duration-500"><svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <div class="w-full h-full flex flex-col items-center justify-center bg-brand-obsidian text-brand-gold p-8 md:p-20 text-center">
+                <div class="mb-10 md:mb-16 text-6xl md:text-9xl opacity-80">🎥</div>
+                <h3 class="text-4xl md:text-7xl font-black italic mb-6 md:mb-10" data-i18n="video_title">סיור בסטודיו "תפארתך"</h3>
+                <p class="text-lg md:text-3xl italic text-gray-400 max-w-4xl mx-auto leading-relaxed font-light" data-i18n="video_desc">כאן יוטמע סרטון התדמית המציג את תהליך הכתיבה המקצועי ברזולוציה גבוהה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (Wishlist Style) -->
+    <div id="toast" class="fixed bottom-32 left-1/2 -translate-x-1/2 md:translate-x-0 md:bottom-12 md:left-auto md:right-12 z-[1500] pointer-events-none opacity-0 translate-y-10 transition-all duration-700 ease-ultra-smooth w-[90%] md:w-auto">
+        <div class="bg-brand-obsidian text-brand-gold px-8 py-6 md:px-12 md:py-8 rounded-[2rem] md:rounded-[3rem] shadow-luxury flex items-center justify-center md:justify-start gap-6 md:gap-8 border border-brand-gold/30">
+            <div class="w-12 h-12 md:w-14 md:h-14 bg-brand-gold text-brand-obsidian rounded-full flex items-center justify-center font-black text-2xl shrink-0 shadow-[0_0_15px_rgba(203,161,83,0.5)]">✓</div>
+            <div class="flex flex-col dir-text-right">
+                <span class="font-black italic text-lg md:text-2xl leading-tight text-white mb-1.5" data-i18n="toast_success">נשמר בהצלחה במועדפים</span>
+                <span class="text-[9px] md:text-[11px] uppercase tracking-[0.4em] text-brand-gold/60 font-black">Securely Saved</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        let currentCurrency = 'USD';
+        const exchangeRate = 3.82; 
+        let currentLang = 'he';
+
+        // Translation Dictionary (Expanded)
+        const translations = {
+            he: {
+                trust_shipping: "משלוח מבוטח", trust_world: "לכל העולם", trust_secure: "סליקה מוצפנת", trust_cert: "אישור", trust_kosher: "כשרות מוסמך",
+                brand_name: "תפארתך", nav_home: "בית", nav_catalog: "קטלוג מוצרים", nav_quality: "הידור ואיכות", nav_about: "עלינו", nav_blog: "מדריכים ובלוג", nav_contact: "צור קשר", nav_reviews: "המלצות", nav_cart: "מועדפים",
+                hero_tag: "Worldwide Elite Standard", hero_title1: "החנות הבטוחה", hero_title2: "בעולם", hero_title3: "ליצירות קודש.",
+                hero_desc: "בית היוצר מנתיבות המציב את הסטנדרט העולמי לאיכות, שירות וביטחון. יצירות מופת של סת\"ם עם אחריות לכל החיים, בהשראת מורשת הקודש של סידנא בבא סאלי זיע\"א.",
+                hero_btn1: "כניסה לקטלוג המאובטח", hero_btn2: "תהליך היצירה", scroll_down: "גלילה",
+                process_tag: "אבני היסוד", process_title: "הסטנדרט של ", val1_title: "קדושה וטהרה", val1_desc: "כל כתיבה מתחילה בטבילה במקווה ובהכנה רוחנית. הסופרים שלנו הם יראי שמיים המקפידים על קלה כבחמורה, ליצירת קלף שהוא משכן ראוי.",
+                val2_title: "מסורת אומנותית", val2_desc: "שימוש בדיו לנצח המיוצר בנוסחה עתיקה, על גבי קלף עבודת יד משובח המבטיח שהכתב יאיר וישמר למשך עשרות שנים.", val3_title: "הגהה ואחריות", val3_desc: "מערך ביקורת משולש וקפדני: שתי בדיקות מחמירות על ידי מגיהים מוסמכים, ובדיקת מחשב מתקדמת למניעת טעויות אנוש.",
+                cat_all: "הכל", cat_torah: "ספרי תורה", cat_tefillin: "תפילין", cat_mezuzah: "מזוזות", cat_megillah: "מגילות", cat_acc: "אביזרים",
+                about_tag: "Our Heritage", about_title: "מורשת של <br><span class='gold-gradient'>קדושה ואומנות</span>", about_p1: "בסטודיו \"תפארתך\" השוכן בעיר נתיבות, סופרי הסת\"ם שלנו ממשיכים מסורת של דורות. עבורנו, עור הבהמה אינו רק חומר גלם – תחת ידי האומן הוא מזדכך והופך לקלף טהור, המשכן בתוכו את המילים הקדושות והנשגבות ביותר ביהדות.", about_p2: "אנו משלבים בהרמוניה בין הכלים המסורתיים שהועברו אלינו מאבותינו – קולמוס קנה טבעי, דיו עתיק בעל ברק ייחודי וקלף עבודת יד – לבין טכנולוגיות ההגהה המתקדמות ביותר בעולם. שילוב זה מבטיח שכל יצירה היוצאת מהסטודיו תהיה לא פחות ממושלמת, כשרה לחלוטין ומהודרת ללא פשרות.",
+                about_review_title: "מדורג 5.0 בעולם", about_review_sub: "מבוסס על מאות רוכשים וקהילות", about_img_tag: "The Studio", about_img_title: "Netivot, Israel",
+                reviews_tag: "Verified Global Feedback", reviews_title: "קהילה עולמית", reviews_title2: "שסומכת עלינו",
+                qv_specs: "מפרט הידור:", qv_level: "רמת סופר:", qv_consult: "ייעוץ אישי",
+                search_title: "מה תרצו למצוא?", search_placeholder: "חפשו ספר תורה, תפילין, מזוזות...",
+                wa_consult: "ייעוץ אישי",
+                footer_desc: "מנגישים את הסטנדרט הגבוה ביותר של יצירות סת\"ם מארץ הקודש לכל יהודי בעולם. מסורת של דורות, איכות של המחר.", footer_nav: "ניווט מהיר", footer_service: "שירות לקוחות", footer_address: "הסטודיו הראשי:<br>נתיבות, ישראל.<br>זמינים לשירותכם מכל העולם.", footer_news: "הצטרפו לניוזלטר האקסקלוסיבי...",
+                video_title: "סיור בסטודיו \"תפארתך\"", video_desc: "כאן יוטמע סרטון התדמית המציג את תהליך הכתיבה המקצועי ברזולוציה גבוהה.", toast_success: "נשמר בהצלחה במועדפים",
+                toast_removed: "הוסר מהמועדפים",
+                buy_now: "רכישה מאובטחת", add_to_cart: "שמור למועדפים"
+            },
+            en: {
+                trust_shipping: "Insured Shipping", trust_world: "Worldwide", trust_secure: "Encrypted", trust_cert: "Certified", trust_kosher: "Kosher",
+                brand_name: "Tifaretcha", nav_home: "Home", nav_catalog: "Collection", nav_quality: "Quality & Halacha", nav_about: "Heritage", nav_blog: "Editorial", nav_contact: "Contact", nav_reviews: "Testimonials", nav_cart: "Wishlist",
+                hero_tag: "Worldwide Elite Standard", hero_title1: "The Safest Store", hero_title2: "in the World", hero_title3: "for Sacred Arts.",
+                hero_desc: "The Netivot creator setting the global standard for quality, service, and security. Masterpieces of Scribal Arts with a lifetime warranty, inspired by the holy legacy of Sidna Baba Sali.",
+                hero_btn1: "Enter The Collection", hero_btn2: "The Process", scroll_down: "Scroll",
+                process_tag: "The Foundation", process_title: "The Standard of ", val1_title: "Holiness & Purity", val1_desc: "Every writing session begins with Mikvah immersion. Our scribes adhere strictly to Jewish law, transforming parchment into a worthy sanctuary.",
+                val2_title: "Artisan Tradition", val2_desc: "Using eternal ink formulated from ancient recipes and premium handmade parchment to ensure the script shines for decades.", val3_title: "Flawless Proofreading", val3_desc: "A rigorous triple check system: two manual proofreads by certified experts, and an advanced computer scan to prevent any human error.",
+                cat_all: "All", cat_torah: "Torah Scrolls", cat_tefillin: "Tefillin", cat_mezuzah: "Mezuzahs", cat_megillah: "Megillahs", cat_acc: "Accessories",
+                about_tag: "Our Heritage", about_title: "A Legacy of <br><span class='gold-gradient'>Holiness & Art</span>", about_p1: "In the 'Tifaretcha' studio located in Netivot, our scribes continue a multi-generational tradition. For us, animal hide isn't just raw material; under the artist's hand, it is purified into a pure parchment housing the holiest words in Judaism.", about_p2: "We harmonize traditional tools passed down from our ancestors – natural reed quills, ancient luminous ink, and handmade parchment – with the world's most advanced proofreading technologies. This ensures every creation is nothing short of perfect and strictly kosher.",
+                about_review_title: "Rated 5.0 Worldwide", about_review_sub: "Based on hundreds of buyers and communities", about_img_tag: "The Studio", about_img_title: "Netivot, Israel",
+                reviews_tag: "Verified Global Feedback", reviews_title: "A Global Community", reviews_title2: "That Trusts Us",
+                qv_specs: "Premium Specs:", qv_level: "Scribe Level:", qv_consult: "Private Consult",
+                search_title: "What are you looking for?", search_placeholder: "Search for Torah, Tefillin...",
+                wa_consult: "Personal Consult",
+                footer_desc: "Bringing the highest standard of sacred Judaica from the Holy Land to every Jew in the world. A tradition of generations, the quality of tomorrow.", footer_nav: "Quick Links", footer_service: "Client Care", footer_address: "Main Studio:<br>Netivot, Israel.<br>At your service worldwide.", footer_news: "Join our exclusive newsletter...",
+                video_title: "Tour the 'Tifaretcha' Studio", video_desc: "The professional high-resolution scribal process video will be embedded here.", toast_success: "Saved to Wishlist",
+                toast_removed: "Removed from Wishlist",
+                buy_now: "Secure Purchase", add_to_cart: "Save to Wishlist"
+            }
+        };
+
+        const catalog = [
+            { 
+                id: 7, 
+                name: "קולמוס נירוסטה מקצועי", name_en: "Professional Stainless Quill", 
+                category: "אביזרים", cat_en: "Accessories", 
+                priceILS: 10, priceUSD: 2.6, 
+                paypalLink: "https://www.paypal.com/ncp/payment/PT8XWCUSAGQRQ",
+                img: "https://images.unsplash.com/photo-1585336139118-132f7f21503e?q=80&w=800", 
+                desc: "קולמוס עמיד ומדויק לכתיבת סת\"ם.", desc_en: "Durable and precise quill for scribes.", 
+                longDesc: "קולמוס נירוסטה המיועד לסופרי סת\"ם המחפשים דיוק ונוחות. אינו נשחק במהירות ומספק חדות מושלמת לאורך זמן.", longDesc_en: "Stainless steel quill designed for scribes seeking precision and comfort. Does not wear out quickly.", 
+                features: ["עמידות לאורך שנים", "דיוק מקסימלי בפרטים הקטנים", "אחיזה ארגונומית מותאמת"], features_en: ["Long-lasting durability", "Maximum precision in details", "Custom ergonomic grip"], 
+                scribalLevel: "ציוד מקצועי מוסמך", scribalLevel_en: "Professional Grade", 
+                stock: "במלאי זמין", stock_en: "Available In Stock", lowStock: false, views: 124 
+            },
+            { 
+                id: 1, 
+                name: "ספר תורה פרימיום", name_en: "Premium Torah Scroll", 
+                category: "ספרי תורה", cat_en: "Torah Scrolls", 
+                priceUSD: 58000, 
+                paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=TZQ8K3PLELXLS&item_name=Premium+Torah+Scroll&amount=58000&currency_code=USD",
+                img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800", 
+                desc: "איכות עילית, נכתב בכתב 'בית יוסף' מסורתי.", desc_en: "Elite quality, written in 'Beit Yosef' script.", 
+                longDesc: "ספר תורה זה מהווה את פסיגת היצירה של 'תפארתך'. נכתב במשך למעלה משנה וחצי על ידי סופר מוסמך בעל וותק של 20 שנה. כל יריעה עברה הגהה כפולה ידנית וממוחשבת, בסטנדרט ההלכתי המחמיר ביותר.", longDesc_en: "This Torah scroll represents the pinnacle of 'Tifaretcha'. Written over a year and a half by a certified scribe with 20 years of experience. Every parchment is double-checked manually and via computer.", 
+                features: ["כתב 'בית יוסף' אותנטי", "קלף עבודת יד ברמת פרימיום", "הגהת מחשב + 2 הגהות אדם", "תעודת אחריות נצחית לכשרות"], features_en: ["Authentic 'Beit Yosef' script", "Premium handmade parchment", "Computer & 2 manual checks", "Lifetime Kashrut warranty"], 
+                scribalLevel: "רמת אומן (Senior Sofer)", scribalLevel_en: "Master Level (Senior)", 
+                stock: "יצירה 1 בלבד זמינה", stock_en: "Only 1 Available", lowStock: true, views: 12 
+            },
+            { 
+                id: 2, 
+                name: "תפילין עור גסה מהודר", name_en: "Premium Thick Leather Tefillin", 
+                category: "תפילין", cat_en: "Tefillin", 
+                priceUSD: 2450, 
+                paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=TZQ8K3PLELXLS&item_name=Premium+Thick+Leather+Tefillin&amount=2450&currency_code=USD",
+                img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=800", 
+                desc: "ריבועים מושלמים בעבודת יד, בדיקת מחשב מלאה.", desc_en: "Perfect handmade squares, full computer check.", 
+                longDesc: "סט תפילין המיוצר מעור שור עבה (עור גסה) המבטיח שמירה על ריבועיות וקדושה לאורך עשרות שנים. הפרשיות נכתבו לאחר טבילה במקווה על ידי סופר ירא שמיים.", longDesc_en: "Tefillin set made from thick ox leather ensuring squareness and holiness for decades. The scrolls were written after Mikvah immersion by a God-fearing scribe.", 
+                features: ["עור בהמה גסה משובח מקשה אחת", "ריבוע ידני מושלם (90 מעלות)", "פרשיות ברמת הידור א'", "רצועות עבודת יד שחורות משני הצדדים"], features_en: ["Single-piece thick ox leather", "Perfect manual square (90°)", "Premium A-level scrolls", "Double-sided black handmade straps"], 
+                scribalLevel: "מומחה סת\"ם מוסמך", scribalLevel_en: "Certified Scribe Expert", 
+                stock: "במלאי שוטף", stock_en: "In Stock", lowStock: false, views: 45 
+            },
+            { 
+                id: 3, 
+                name: "מזוזה 'הידור' 15 ס\"מ", name_en: "15cm 'Hidur' Mezuzah", 
+                category: "מזוזות", cat_en: "Mezuzahs", 
+                priceUSD: 185, 
+                paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=TZQ8K3PLELXLS&item_name=15cm+Hidur+Mezuzah&amount=185&currency_code=USD",
+                img: "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?q=80&w=800", 
+                desc: "כתב ברור, מרהיב ומאיר, קלף שילוח מהודר.", desc_en: "Clear, radiant script, premium parchment.", 
+                longDesc: "מזוזה מהודרת ויוקרתית שנכתבה בכתב אחיד, קריא ומושלם. מתאימה במיוחד לדלתות כניסה ראשיות ולבתים המחפשים הידור ללא פשרות. הקלף מוגן היטב מפני לחות.", longDesc_en: "A luxurious Mezuzah written in a uniform, legible, and perfect script. Especially suitable for main entrances and homes seeking uncompromised quality. Well protected from humidity.", 
+                features: ["גודל 15 ס\"מ תקני ומהודר", "כתב קריא ומסורתי (אשכנז/ספרד)", "בדיקת מחשב מלאה", "קלף שילוח עמיד בתנאי חוץ"], features_en: ["Standard 15 cm size", "Clear traditional script", "Full computer verification", "Durable outdoor parchment"], 
+                scribalLevel: "סופר ירא שמיים מוסמך", scribalLevel_en: "Certified Scribe", 
+                stock: "במלאי", stock_en: "In Stock", lowStock: false, views: 89 
+            }
+        ];
+
+        const googleReviews = [
+            { name: "David Friedman, NY", rating: 5, text: "The unboxing experience was as incredible as the Tefillin themselves. You can feel the holiness and the extreme attention to detail. A true masterpiece that I will pass down.", date: "1 month ago" },
+            { name: "מיכאל לוי, לונדון", name_en: "Michael Levy, London", rating: 5, text: "חיפשתי חודשים סופר סת\"ם שאוכל לסמוך עליו בעיניים עצומות. השירות, השקיפות ותעודת האחריות שקיבלתי מתפארתך פשוט שווים כל שקל. איכות נדירה.", text_en: "I searched for months for a scribe I could trust blindly. The service, transparency, and warranty certificate from Tifaretcha are worth every penny. Rare quality.", date: "לפני שבועיים", date_en: "2 weeks ago" },
+            { name: "Arielle B., Paris", rating: 5, text: "Des mezouzas magnifiques d'une précision incroyable. La livraison sécurisée à Paris a été très rapide. Merci pour votre dévouement.", date: "3 weeks ago" },
+            { name: "הרב אברהם כהן", name_en: "Rabbi Abraham Cohen", rating: 5, text: "זכינו לרכוש ספר תורה לקהילתנו. הכתב מרהיב וסימטרי באופן יוצא דופן. תהליך הבדיקה הממוחשבת הוצג בפנינו ונתן שקט נפשי עצום.", text_en: "We merited purchasing a Torah for our community. The script is spectacularly symmetrical. The computer checking process was shown to us, giving immense peace of mind.", date: "לפני חודש", date_en: "1 month ago" }
+        ];
+
+        let wishlist = JSON.parse(localStorage.getItem('tifarteha_premium_wishlist')) || [];
+        let activeCategory = 'all';
+        let sparksCtx, sparksCanvas, sparksArray = [];
+
+        function init() {
+            // Cinematic Preloader Logic
+            const loaderBar = document.getElementById('loader-bar');
+            const loaderPerc = document.getElementById('loader-percentage');
+            const preloaderContent = document.getElementById('preloader-content');
+            const bgBlack = document.getElementById('preloader-bg-black');
+            const bgGold = document.getElementById('preloader-bg-gold');
+            const wrapper = document.getElementById('preloader-wrapper');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 12;
+                if (progress > 100) progress = 100;
+                loaderBar.style.width = progress + '%';
+                loaderPerc.innerText = Math.floor(progress) + '%';
+                
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        preloaderContent.style.opacity = '0';
+                        setTimeout(() => {
+                            bgBlack.style.transform = 'translateY(-100%)';
+                            bgGold.style.transform = 'translateY(-100%)';
+                            setTimeout(() => {
+                                wrapper.style.display = 'none';
+                                document.body.classList.remove('overflow-hidden');
+                                AOS.init({ duration: 1600, easing: 'ease-out-cubic', once: true, offset: 50 });
+                                initSparks();
+                            }, 1500); 
+                        }, 600);
+                    }, 800); 
+                }
+            }, 100);
+
+            applyTranslations();
+            renderCatalog();
+            renderTestimonials();
+            updateWishlistCount();
+            initCustomCursor();
+            initMagneticButtons();
+
+            const nav = document.getElementById('main-header');
+            const catBar = document.getElementById('category-bar');
+            const scrollTopBtn = document.getElementById('scroll-to-top');
+            const trustBar = document.getElementById('trust-bar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-glass');
+                    trustBar.classList.add('h-0', 'opacity-0');
+                    trustBar.classList.remove('h-[38px]', 'md:h-[44px]');
+                    catBar.classList.add('shadow-glass');
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    nav.classList.remove('shadow-glass');
+                    trustBar.classList.remove('h-0', 'opacity-0');
+                    trustBar.classList.add('h-[38px]', 'md:h-[44px]');
+                    catBar.classList.remove('shadow-glass');
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        // Custom Cursor Logic
+        function initCustomCursor() {
+            if (window.matchMedia("(pointer: coarse)").matches) return; // Skip on touch
+            const cursor = document.getElementById('cursor');
+            const follower = document.getElementById('cursor-follower');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                gsap.to(follower, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: 0.15,
+                    ease: "power2.out"
+                });
+            });
+
+            document.querySelectorAll('.cursor-interactive, a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+        }
+
+        // Magnetic Buttons Logic
+        function initMagneticButtons() {
+            if (window.matchMedia("(pointer: coarse)").matches) return; // Skip on touch
+            const magnets = document.querySelectorAll('.magnetic-btn');
+            magnets.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: "power2.out" });
+                });
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+                });
+            });
+        }
+
+        // Sacred Sparks Canvas Logic
+        function initSparks() {
+            sparksCanvas = document.getElementById('sparks-canvas');
+            if(!sparksCanvas) return;
+            sparksCtx = sparksCanvas.getContext('2d');
+            
+            function resize() {
+                sparksCanvas.width = sparksCanvas.offsetWidth;
+                sparksCanvas.height = sparksCanvas.offsetHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            for(let i=0; i<50; i++) {
+                sparksArray.push({
+                    x: Math.random() * sparksCanvas.width,
+                    y: Math.random() * sparksCanvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    speedY: Math.random() * 0.5 + 0.1,
+                    opacity: Math.random() * 0.5 + 0.1
+                });
+            }
+
+            function animateSparks() {
+                sparksCtx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+                sparksCtx.fillStyle = '#CBA153';
+                
+                sparksArray.forEach(spark => {
+                    spark.y -= spark.speedY;
+                    if(spark.y < 0) {
+                        spark.y = sparksCanvas.height;
+                        spark.x = Math.random() * sparksCanvas.width;
+                    }
+                    sparksCtx.globalAlpha = spark.opacity;
+                    sparksCtx.beginPath();
+                    sparksCtx.arc(spark.x, spark.y, spark.size, 0, Math.PI * 2);
+                    sparksCtx.fill();
+                });
+                requestAnimationFrame(animateSparks);
+            }
+            animateSparks();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu.classList.contains('opacity-0')) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'he' ? 'en' : 'he';
+            document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            
+            const langToggles = document.querySelectorAll('#lang-toggle');
+            langToggles.forEach(btn => btn.innerText = currentLang === 'he' ? 'EN' : 'HE');
+            
+            const mobLangToggle = document.getElementById('mobile-lang-toggle');
+            if(mobLangToggle) mobLangToggle.innerText = currentLang === 'he' ? 'SWITCH TO ENGLISH' : 'עבור לעברית';
+            
+            applyTranslations();
+            renderCatalog();
+            renderTestimonials();
+            
+            const activeModalBtn = document.getElementById('qv-buy-btn');
+            if(document.getElementById('quickview-overlay').classList.contains('active') && activeModalBtn.href !== "#") {
+                const url = new URL(activeModalBtn.href);
+                const itemName = url.searchParams.get("item_name");
+                if (itemName) {
+                    const matchedItem = catalog.find(item => item.paypalLink.includes(itemName) || item.name === itemName || item.name_en === itemName);
+                    if (matchedItem) {
+                        openQuickView(matchedItem.id);
+                    }
+                }
+            }
+        }
+
+        function applyTranslations() {
+            const dict = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    if (key.includes('process_title') || key.includes('about_title')) {
+                        el.innerHTML = dict[key] + (currentLang === 'he' ? ' <span class="gold-gradient">של תפארתך</span>' : '<span class="gold-gradient">Of Tifaretcha</span>');
+                        if (key.includes('about_title')) el.innerHTML = dict[key];
+                    } else {
+                        el.innerHTML = dict[key];
+                    }
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) el.setAttribute('placeholder', dict[key]);
+            });
+        }
+
+        function getLangValue(item, key) {
+            if (currentLang === 'en' && item[key + '_en']) return item[key + '_en'];
+            return item[key];
+        }
+
+        function setCurrency(curr) {
+            currentCurrency = curr;
+            document.querySelectorAll('#btn-usd, #btn-ils, #mob-btn-usd, #mob-btn-ils').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-brand-obsidian', 'shadow-sm');
+                if(btn.id.includes('mob')) btn.classList.add('text-white/40');
+                else btn.classList.add('text-gray-400');
+            });
+            
+            const deskBtn = document.getElementById(`btn-${curr.toLowerCase()}`);
+            const mobBtn = document.getElementById(`mob-btn-${curr.toLowerCase()}`);
+            
+            if(deskBtn) deskBtn.classList.add('bg-white', 'text-brand-obsidian', 'shadow-sm');
+            if(deskBtn) deskBtn.classList.remove('text-gray-400');
+            if(mobBtn) mobBtn.classList.add('bg-white', 'text-brand-obsidian');
+            if(mobBtn) mobBtn.classList.remove('text-white/40');
+
+            renderCatalog();
+            
+            const activeModalBtn = document.getElementById('qv-buy-btn');
+            if(document.getElementById('quickview-overlay').classList.contains('active') && activeModalBtn.href !== "#") {
+                const url = new URL(activeModalBtn.href);
+                const itemName = url.searchParams.get("item_name");
+                if (itemName) {
+                    const matchedItem = catalog.find(item => item.paypalLink.includes(itemName) || item.name === itemName || item.name_en === itemName);
+                    if (matchedItem) document.getElementById('qv-price').innerText = formatPrice(matchedItem);
+                }
+            }
+        }
+
+        function formatPrice(item) {
+            if (currentCurrency === 'USD') return `$${item.priceUSD.toLocaleString()}`;
+            return `₪${(item.priceILS || Math.round(item.priceUSD * exchangeRate)).toLocaleString()}`;
+        }
+
+        function filterByCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-gold', 'text-white', 'shadow-luxury-gold');
+                btn.classList.add('border-gray-200', 'text-gray-500', 'bg-white');
+            });
+            event.target.classList.add('active', 'bg-brand-gold', 'text-white', 'shadow-luxury-gold');
+            event.target.classList.remove('border-gray-200', 'text-gray-500', 'bg-white');
+            renderCatalog();
+        }
+
+        function filterCatalogSearch(term) {
+            const results = catalog.filter(i => getLangValue(i, 'name').includes(term) || getLangValue(i, 'desc').includes(term));
+            const container = document.getElementById('search-results');
+            if (term.length < 2) { container.innerHTML = ''; return; }
+            container.innerHTML = results.map(i => `
+                <div class="bg-white/5 p-8 md:p-12 rounded-[2.5rem] flex items-center gap-8 md:gap-12 cursor-interactive hover:bg-white/10 border border-transparent hover:border-brand-gold/30 transition-all duration-500 shadow-glass" onclick="openQuickView(${i.id}); toggleSearch();">
+                    <img src="${i.img}" class="w-24 h-24 md:w-32 md:h-32 rounded-2xl object-cover shrink-0 shadow-luxury">
+                    <div class="dir-text-right w-full">
+                        <h4 class="text-white font-black italic text-2xl md:text-4xl mb-3">${getLangValue(i, 'name')}</h4>
+                        <span class="text-brand-gold text-lg md:text-2xl font-black tracking-widest font-serif">${formatPrice(i)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleSearch() {
+            const overlay = document.getElementById('search-overlay');
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.style.opacity = '1', 10);
+                document.getElementById('search-input').focus();
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.classList.add('hidden'), 700);
+                document.body.style.overflow = '';
+            }
+        }
+
+        function openQuickView(id) {
+            const item = catalog.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('qv-img').src = item.img;
+            document.getElementById('qv-category').innerText = getLangValue(item, 'category') || getLangValue(item, 'cat');
+            
+            const stockInd = document.getElementById('qv-stock-indicator');
+            const stockTxt = document.getElementById('qv-stock-text');
+            stockInd.className = `w-2.5 h-2.5 md:w-3 md:h-3 rounded-full shrink-0 shadow-[0_0_15px_currentColor] ${item.lowStock ? 'bg-red-500 text-red-500 scarcity-tag' : 'bg-brand-success text-brand-success'}`;
+            stockTxt.innerText = getLangValue(item, 'stock');
+
+            document.getElementById('qv-title').innerText = getLangValue(item, 'name');
+            document.getElementById('qv-price').innerText = formatPrice(item);
+            document.getElementById('qv-desc').innerText = getLangValue(item, 'longDesc') || getLangValue(item, 'desc');
+            
+            const featuresContainer = document.getElementById('qv-features');
+            const features = getLangValue(item, 'features');
+            if (features && features.length > 0) {
+                featuresContainer.innerHTML = features.map(f => `
+                    <li class="flex items-center gap-4 md:gap-6 text-base md:text-xl text-gray-700 font-bold">
+                        <div class="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-brand-gold rounded-full shrink-0 shadow-[0_0_10px_#CBA153]"></div>
+                        ${f}
+                    </li>
+                `).join('');
+                featuresContainer.parentElement.style.display = 'block';
+            } else {
+                featuresContainer.parentElement.style.display = 'none';
+            }
+
+            document.getElementById('qv-scribal').innerText = getLangValue(item, 'scribalLevel') || "Certified";
+            document.getElementById('qv-buy-btn').href = item.paypalLink || "#";
+
+            // Update modal wishlist button state
+            const wishlistBtn = document.getElementById('qv-wishlist-btn');
+            const wishlistIcon = document.getElementById('qv-wishlist-icon');
+            wishlistBtn.dataset.currentId = item.id;
+            
+            const isWished = wishlist.some(w => w.id === item.id);
+            wishlistIcon.setAttribute('fill', isWished ? 'currentColor' : 'none');
+            if(isWished) {
+                wishlistBtn.classList.add('text-brand-gold', 'border-brand-gold');
+                wishlistBtn.classList.remove('text-gray-500', 'border-brand-platinum');
+            } else {
+                wishlistBtn.classList.remove('text-brand-gold', 'border-brand-gold');
+                wishlistBtn.classList.add('text-gray-500', 'border-brand-platinum');
+            }
+
+            const overlay = document.getElementById('quickview-overlay');
+            overlay.classList.remove('hidden'); 
+            setTimeout(() => { overlay.classList.add('active'); }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuickView() {
+            const overlay = document.getElementById('quickview-overlay');
+            overlay.classList.remove('active');
+            setTimeout(() => { overlay.classList.add('hidden'); document.body.style.overflow = ''; }, 800); 
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById('catalog-grid');
+            const filtered = activeCategory === 'all' ? catalog : catalog.filter(i => {
+                return currentLang === 'he' ? i.category === activeCategory : i.cat_en === activeCategory || i.category === activeCategory;
+            });
+            
+            grid.innerHTML = filtered.map((item, i) => {
+                const isWished = wishlist.some(w => w.id === item.id);
+                const heartFill = isWished ? 'currentColor' : 'none';
+                const heartClass = isWished ? 'text-brand-gold border-brand-gold shadow-luxury-gold' : 'text-gray-400 border-brand-platinum hover:text-brand-gold hover:border-brand-gold';
+
+                return `
+                <div class="bg-white rounded-[3rem] md:rounded-[4rem] border border-black/5 shadow-luxury hover:shadow-luxury-hover overflow-hidden relative group transition-all duration-[1s] ease-ultra-smooth transform hover:-translate-y-5 flex flex-col h-full" data-aos="fade-up" data-aos-delay="${(i%3) * 150}">
+                    <div class="relative product-image-wrapper overflow-hidden cursor-interactive shrink-0 bg-[#F9F8F6]" onclick="openQuickView(${item.id})">
+                        <img src="${item.img}" class="w-full h-full object-cover transition-transform duration-[2.5s] ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100 mix-blend-multiply filter contrast-[1.05]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-obsidian/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-ultra-smooth"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 ease-ultra-smooth">
+                            <span class="bg-white/95 backdrop-blur-2xl text-brand-obsidian px-10 md:px-12 py-4 md:py-5 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(0,0,0,0.2)] flex items-center gap-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-[800ms] ease-ultra-smooth">
+                                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                ${currentLang === 'he' ? 'תצוגה מהירה' : 'Quick View'}
+                            </span>
+                        </div>
+                        <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-brand-obsidian/95 backdrop-blur-xl text-brand-gold text-[9px] md:text-[11px] font-black px-5 md:px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl pointer-events-none border border-brand-gold/20">
+                            <span class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full shrink-0 shadow-[0_0_10px_currentColor] ${item.lowStock ? 'bg-red-500 text-red-500 scarcity-tag' : 'bg-brand-success text-brand-success'}"></span>
+                            ${getLangValue(item, 'stock')}
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-14 dir-text-right relative bg-white flex flex-col flex-1">
+                        <div class="text-[9px] md:text-[11px] font-black uppercase tracking-[0.4em] text-brand-darkGold mb-4 md:mb-6">${getLangValue(item, 'category') || getLangValue(item, 'cat')}</div>
+                        <h3 class="text-2xl md:text-4xl font-black italic mb-4 md:mb-6 group-hover:text-brand-gold transition-colors duration-500 cursor-interactive line-clamp-2 leading-[1.15]" onclick="openQuickView(${item.id})">${getLangValue(item, 'name')}</h3>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-black text-brand-obsidian block mb-6 md:mb-8 font-serif">${formatPrice(item)}</span>
+                        <p class="text-gray-500 font-tradition text-sm md:text-lg leading-[2] line-clamp-2 md:line-clamp-3 mb-10 md:mb-12 cursor-interactive flex-1 font-light" onclick="openQuickView(${item.id})">${getLangValue(item, 'desc')}</p>
+                        
+                        <div class="flex items-center gap-5 mt-auto pt-8 border-t border-black/5">
+                            <a href="${item.paypalLink || '#'}" target="_blank" onclick="event.stopPropagation();" class="cursor-interactive magnetic-btn flex-1 py-5 md:py-7 rounded-2xl border border-brand-platinum bg-brand-cream font-black text-[10px] md:text-xs uppercase tracking-[0.3em] hover:bg-brand-obsidian hover:text-brand-gold transition-all duration-500 text-center block shadow-glass">
+                                ${translations[currentLang].buy_now}
+                            </a>
+                            <button onclick="toggleWishlist(${item.id}); event.stopPropagation();" class="cursor-interactive p-5 md:p-7 rounded-2xl bg-white border ${heartClass} transition-all duration-500 shrink-0" aria-label="${translations[currentLang].add_to_cart}">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" fill="${heartFill}" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+            
+            // Re-init Custom Cursor on new elements
+            initCustomCursor();
+        }
+
+        function renderTestimonials() {
+            const content = googleReviews.map(r => `
+                <div class="relative w-[320px] xs:w-[380px] md:w-[550px] bg-white p-10 md:p-16 rounded-[3rem] md:rounded-[4rem] border border-black/5 dir-text-right shrink-0 shadow-luxury hover:shadow-luxury-gold transition-all duration-700 ease-ultra-smooth overflow-hidden z-10 flex flex-col justify-between">
+                    <div class="absolute -top-10 ${currentLang === 'he' ? '-left-6' : '-right-6'} text-[10rem] md:text-[16rem] text-brand-gold opacity-[0.03] font-serif leading-none rotate-180 z-0 select-none">"</div>
+                    
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-center mb-8 md:mb-12">
+                            <div class="flex items-center gap-2 md:gap-3 bg-brand-cream px-5 py-3 rounded-full border border-brand-gold/10 shadow-sm">
+                                <div class="flex gap-1 md:gap-1.5 text-brand-gold text-[10px] md:text-sm">
+                                    ${Array(r.rating).fill('<svg class="w-3 h-3 md:w-4 md:h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>').join('')}
+                                </div>
+                            </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-6 h-6 md:w-8 md:h-8 opacity-70">
+                        </div>
+                        <p class="text-gray-800 font-tradition italic text-lg md:text-2xl mb-10 md:mb-16 leading-loose flex-1 font-light">"${getLangValue(r, 'text')}"</p>
+                        <div class="flex items-center justify-between border-t border-black/5 pt-8 md:pt-10 mt-auto">
+                            <div class="flex items-center gap-5 md:gap-6">
+                                <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-brand-obsidian to-gray-800 rounded-full flex items-center justify-center font-black text-brand-gold text-lg md:text-2xl shadow-inner border border-brand-gold/20 shrink-0">${getLangValue(r, 'name').charAt(0)}</div>
+                                <div>
+                                    <span class="block font-black text-brand-obsidian text-base md:text-xl line-clamp-1">${getLangValue(r, 'name')}</span>
+                                    <span class="text-[9px] md:text-[11px] text-gray-400 uppercase tracking-[0.3em] mt-1">${getLangValue(r, 'date')}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('track-1').innerHTML = content;
+            document.getElementById('track-2').innerHTML = content;
+        }
+
+        function toggleWishlistFromModal() {
+            const btn = document.getElementById('qv-wishlist-btn');
+            const id = parseInt(btn.dataset.currentId);
+            if(id) {
+                toggleWishlist(id);
+                const isWished = wishlist.some(w => w.id === id);
+                const wishlistIcon = document.getElementById('qv-wishlist-icon');
+                wishlistIcon.setAttribute('fill', isWished ? 'currentColor' : 'none');
+                if(isWished) {
+                    btn.classList.add('text-brand-gold', 'border-brand-gold');
+                    btn.classList.remove('text-gray-500', 'border-brand-platinum');
+                } else {
+                    btn.classList.remove('text-brand-gold', 'border-brand-gold');
+                    btn.classList.add('text-gray-500', 'border-brand-platinum');
+                }
+            }
+        }
+
+        function toggleWishlist(id) {
+            const index = wishlist.findIndex(i => i.id === id);
+            let msgHe, msgEn;
+
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                msgHe = translations.he.toast_removed;
+                msgEn = translations.en.toast_removed;
+            } else {
+                const item = catalog.find(i => i.id === id);
+                wishlist.push({ ...item, cartId: Date.now() });
+                msgHe = translations.he.toast_success;
+                msgEn = translations.en.toast_success;
+            }
+            
+            localStorage.setItem('tifarteha_premium_wishlist', JSON.stringify(wishlist));
+            updateWishlistCount();
+            renderCatalog(); 
+            showToast(msgHe, msgEn);
+        }
+
+        function updateWishlistCount() {
+            document.getElementById('cart-count').innerText = wishlist.length;
+        }
+
+        function toggleCart() {
+            const count = document.getElementById('cart-count');
+            count.parentElement.classList.add('scale-110');
+            setTimeout(() => count.parentElement.classList.remove('scale-110'), 300);
+            
+            if(wishlist.length > 0) {
+                 showToast(translations.he.toast_success.replace('נשמר', 'נמצא'), "Saved in Collection");
+            } else {
+                 showToast("האוסף שלך ריק כרגע", "Your collection is empty");
+            }
+        }
+
+        function showToast(msgHe, msgEn) {
+            const t = document.getElementById('toast');
+            const txtHe = t.querySelector('span:first-of-type');
+            const txtEn = t.querySelector('span:last-of-type');
+            
+            txtHe.innerText = currentLang === 'he' ? msgHe : msgEn;
+            txtEn.innerText = currentLang === 'he' ? (msgEn || "Update") : (msgHe || "עדכון");
+            
+            t.style.opacity = '1'; 
+            t.style.transform = 'translateY(0)';
+            setTimeout(() => { 
+                t.style.opacity = '0'; 
+                t.style.transform = 'translateY(40px)'; 
+            }, 3000);
+        }
+
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('active');
+            setTimeout(() => modal.classList.add('hidden'), 800);
+            document.body.style.overflow = '';
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
